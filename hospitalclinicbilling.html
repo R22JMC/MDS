@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Clinic Billing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="bg-white min-h-screen font-[Catamaran]">
+  <header class="bg-[#4C46C7] relative">
+    <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 py-16 flex items-center justify-between h-[100px]">
+      <a href="./homepage.html" class="flex-shrink-0 cursor-pointer">
+        <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[160px] h-[65px] object-contain"
+          style="cursor: pointer;">
+      </a>
+      <div class="flex items-center space-x-10">
+        <nav class="hidden xl:flex items-center space-x-8 text-white font-normal tracking-[0.57px]">
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              Who We Serve
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li><a href="./individualconsultantbilling.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Individual
+                    Consultant Billing</a></li>
+                <li><a href="./group-administration.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Groups</a></li>
+                <li><a href="./hospitalclinicbilling.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Hospital/Clinical
+                    Billing</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              What We Do
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li>
+                  <a href="./billing-services.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    Billing Services
+                  </a>
+                </li>
+                <li><a href="./software.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Software</a>
+                </li>
+                <li><a href="./remote-practise.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Remote
+                    Practice
+                    Management</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              About
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li><a href="./about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">About
+                    Us</a>
+                </li>
+                <li><a href="./news.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">News</a></li>
+                <li><a href="./reviews.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Reviews</a></li>
+                <li><a href="./careers.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Careers</a></li>
+                <li><a href="./contact-us.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="./contact-us.html" class="hover:opacity-80">Contact Us</a>
+        </nav>
+        <div class="hidden xl:flex items-center space-x-4">
+          <a href="#"
+            class="px-6 py-2 border border-white rounded-full text-white hover:bg-white hover:text-[#343434] transition tracking-[0.57px]">
+            Client Login
+          </a>
+          <a href="./onlineBillPayment.html"
+            class="px-6 py-2 bg-[#ECF2FD] text-[#343434] font-normal rounded-full hover:bg-[#d6e4fb] transition tracking-[0.57px]">
+            Pay Your Bill
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Btn (Hamburger Only) -->
+      <div class="xl:hidden relative">
+        <button id="mobile-menu-button" class="text-white text-[30px]" aria-controls="mobile-menu"
+          aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Animated + Accordion) -->
+    <div id="mobile-menu"
+      class="xxl:hidden fixed inset-y-0 right-0 w-full md:w-[400px] bg-[#4C46C7] text-white transform translate-x-full transition-transform duration-500 ease-in-out z-50"
+      aria-hidden="true">
+
+      <nav class="flex flex-col space-y-2 p-6 font-medium">
+        <!-- Close Button (X Icon) -->
+        <button id="mobile-menu-close" class="self-end text-white text-[30px] hidden" aria-label="Close menu">
+          ✕
+        </button>
+
+        <!-- Accordion: Who We Serve -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-who">
+          <span>Who We Serve</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-who" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./individualconsultantbilling.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Individual
+            Consultant Billing</a>
+          <a href="./group-administration.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Groups</a>
+          <a href="./hospitalclinicbilling.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Hospital/Clinical
+            Billing</a>
+        </div>
+
+        <!-- Accordion: What We Do -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-what">
+          <span>What We Do</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-what" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./billing-services.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Billing
+            Services</a>
+          <a href="./software.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Software</a>
+          <a href="./remote-practise.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Remote
+            Practice Management</a>
+        </div>
+
+        <!-- Accordion: About -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-about">
+          <span>About</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-about" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./about.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">About Us</a>
+          <a href="./news.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">News</a>
+          <a href="./reviews.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Reviews</a>
+          <a href="./careers.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Careers</a>
+          <a href="./contact-us.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Contact Us</a>
+        </div>
+
+        <a href="./contact-us.html" class="hover:text-gray-200 py-2">Contact Us</a>
+        <hr class="my-2 border-white/20 pt-2 pb-2">
+        <div class="flex items-center gap-4 py-2">
+          <a href="#"
+            class="px-4 py-2 border border-white rounded-full text-white hover:bg-white hover:text-[#343434] transition">Client
+            Login</a>
+          <a href="./onlineBillPayment.html"
+            class="px-4 py-2 bg-[#ECF2FD] text-[#343434] font-normal rounded-full hover:bg-[#d6e4fb] transition">Pay
+            Your Bill</a>
+        </div>
+      </nav>
+    </div>
+    <!-- Backdrop for mobile menu -->
+    <div id="mobile-menu-backdrop"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden xxl:hidden transition-opacity duration-500" aria-hidden="true">
+    </div>
+  </header>
+
+
+  <div class="mx-[8%] lg:mx-[8%] py-12">
+    <div class="grid lg:grid-cols-[55%_40%] gap-[5%] items-center">
+      <!-- Text Section -->
+      <div class="pl-[6%]">
+        <h2 class="font-semibold 
+          text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] 
+          leading-[120%] tracking-[0.57px] align-middle text-[#4D44CC] mb-6">
+          Hospital and Clinic Management Services
+        </h2>
+        <p class="font-normal 
+          text-[14px] sm:text-[15px] md:text-[16px] 
+          leading-[170%] tracking-[0.57px] text-[#343434]">
+          We are committed to building strong partnerships with our clients, ensuring the highest
+          standards of service through close collaboration. By conducting tailored workshops, we
+          gain a clear understanding of your objectives and offer strategic guidance, leveraging
+          over two decades of industry insight and experience.
+        </p>
+      </div>
+
+      <!-- Image Section -->
+      <div>
+        <img src="./assets/images/young-woman-working-computer.jpg" alt="young-woman-working-computer"
+          class="rounded-2xl shadow-md w-full object-cover">
+      </div>
+    </div>
+  </div>
+
+  <!-- Mission Section -->
+  <div class="bg-[#4D44CC] my-12">
+    <div class="mx-[6%] sm:mx-[8%] lg:mx-[14%] relative">
+
+      <!-- Floating Heading -->
+      <div
+        class="absolute -top-6 left-0 
+          bg-indigo-100 font-catamaran font-bold
+          text-[20px] sm:text-[28px] md:text-[36px] lg:text-[47.9px] 
+          leading-[28px] sm:leading-[36px] md:leading-[46px] lg:leading-[57.48px] 
+          text-center text-[#4D44CC] 
+          px-6 sm:px-8 py-3 sm:py-4 
+          shadow-[61.37px_80.08px_40.42px_0px_#00000008,34.43px_44.91px_33.68px_0px_#0000001A,15.72px_20.21px_25.45px_0px_#0000002B,3.74px_5.24px_14.22px_0px_#00000033]">
+        OUR MISSION
+      </div>
+
+      <!-- Mission Text -->
+      <p class="py-10 pt-16 lg:pt-10
+          px-4 sm:px-8 md:px-16 lg:pl-[40%]
+          font-catamaran font-normal 
+          text-[14px] sm:text-[15.5px] md:text-[17px] lg:text-[17.96px] 
+          leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[26.94px] 
+          text-[#EFF1FF]">
+        is to positively impact the lives of healthcare providers and their patients by saving
+        time and providing better experiences with intelligent administration.
+      </p>
+
+    </div>
+  </div>
+
+  <section>
+    <h3 class="mx-[8%] lg:mx-[14%] font-semibold 
+          text-[24px] sm:text-[28px] md:text-[30px] lg:text-[35px] 
+          leading-[46.7px] align-middle text-[#4D44CC] mb-6">
+      This is how we can help!
+    </h3>
+    <div class="mt-8 border-t-[0.83px] border-b-[0.83px] border-l-0 border-r-0 border-solid border-[#4D44CC]">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-[8%] lg:mx-[14%] border-l-[0.83px] border-r-[0.83px] border-solid border-[#4D44CC]">
+        <div class="p-6 py-12 border-b lg:border-b-0 md:border-r border-[#4D44CC]">
+          <img class="mx-auto mb-6" src="./assets/images/register.svg" />
+          <p class="font-semibold text-[#4D44CC] text-[18px] leading-[28px] text-center 
+            sm:text-[20px] sm:leading-[30px] 
+            md:text-[22px] md:leading-[32px] 
+            lg:text-[24px] lg:leading-[34px]">
+            Patient Registration and Verification
+          </p>
+        </div>
+        <div class="p-6 py-12 border-b lg:border-b-0 lg:border-r border-[#4D44CC]">
+          <img class="mx-auto mb-6" src="./assets/images/management.svg" />
+          <p class="font-semibold text-[#4D44CC] text-[18px] leading-[28px] text-center 
+              sm:text-[20px] sm:leading-[30px] 
+              md:text-[22px] md:leading-[32px] 
+              lg:text-[24px] lg:leading-[34px]">
+            Practice Management
+          </p>
+        </div>
+        <div class="p-6 py-12 border-b md:border-b-0 md:border-r border-[#4D44CC]">
+          <img class="mx-auto mb-6" src="./assets/images/claims.svg" />
+          <p class="font-semibold text-[#4D44CC] text-[18px] leading-[28px] text-center 
+            sm:text-[20px] sm:leading-[30px] 
+            md:text-[22px] md:leading-[32px] 
+            lg:text-[24px] lg:leading-[34px]">
+            Complete Handling of Claims
+          </p>
+        </div>
+        <div class="p-6 py-12 text-center">
+          <img class="mx-auto mb-6" src="./assets/images/verification.svg" />
+          <p class="font-semibold text-[#4D44CC] text-[18px] leading-[28px] text-center 
+          sm:text-[20px] sm:leading-[30px] 
+          md:text-[22px] md:leading-[32px] 
+          lg:text-[24px] lg:leading-[34px]">
+            Clinician Registration and Verification
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="mx-[8%] lg:mx-[14%] py-12">
+    <h2
+      class="font-bold text-[28px] leading-[36px] sm:text-[32px] sm:leading-[42px] md:text-[35.92px] md:leading-[46.7px] text-center align-middle text-[#4D44CC] mb-4">
+      Patient Registration and Verification
+    </h2>
+    <!-- Top Section -->
+    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+      <!-- Image -->
+      <div class="flex-1">
+        <img src="./assets/images/registeration.png" alt="Patient Registration" class="w-full h-auto">
+      </div>
+
+      <!-- Text -->
+      <div class="flex-1">
+        <p
+          class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC] mb-4">
+          We can assist with precise collection of patient data, including demographic and insurance information, and
+          verify insurance eligibility and benefits. Verifying patients’ details, especially their insurance, is highly
+          beneficial.
+        </p>
+        <p
+          class="font-bold text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC] mb-4">
+          It ensures:</p>
+        <ul class="space-y-2 text-[#4D44CC] text-base sm:text-lg">
+          <li
+            class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC] flex items-center gap-2">
+            <img src="./assets/images/mark.svg" />
+            There is coverage for treatments
+          </li>
+          <li
+            class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC] flex items-center gap-2">
+            <img src="./assets/images/mark.svg" />
+            That billing issues and delays in payments are minimised
+          </li>
+          <li
+            class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC] flex items-center gap-2">
+            <img src="./assets/images/mark.svg" />
+            Enhanced administrative efficiency
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="mt-16 gap-8">
+      <div class="relative">
+        <img src="./assets/images/benifits.jpg" alt="Patient Benefit" class="w-full h-[325px] object-cover object-top">
+        <div
+  class="absolute -bottom-16 left-0 bg-[#DFE4FE] font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC] px-[115px] py-11 shadow-[42.66px_36.67px_22.45px_0px_#00000005,23.95px_20.96px_19.46px_0px_#00000014,10.48px_8.98px_14.22px_0px_#00000021,2.99px_2.25px_7.48px_0px_#00000026]">
+  What is the benefit?
+</div>
+
+
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 pt-28">
+
+        <div class="flex flex-row gap-6">
+          <div>
+            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15.1718 1.3014C15.2005 1.20762 15.2569 1.12583 15.3327 1.0678C15.4086 1.00978 15.5 0.978516 15.5938 0.978516C15.6877 0.978516 15.7791 1.00978 15.8549 1.0678C15.9308 1.12583 15.9872 1.20762 16.0159 1.3014L19.0764 11.1921C19.1053 11.2857 19.1617 11.3673 19.2375 11.4251C19.3133 11.483 19.4047 11.5142 19.4984 11.5141H29.407C29.5005 11.5142 29.5916 11.5454 29.6672 11.6031C29.7429 11.6608 29.7991 11.7422 29.8281 11.8355C29.857 11.9289 29.8571 12.0294 29.8283 12.1227C29.7994 12.2161 29.7432 12.2975 29.6677 12.3554L21.6528 18.4696C21.5769 18.5274 21.5203 18.6089 21.4913 18.7026C21.4623 18.7962 21.4624 18.8971 21.4915 18.9908L24.552 28.8796C24.5809 28.9729 24.5809 29.0734 24.5521 29.1667C24.5233 29.2601 24.4671 29.3415 24.3915 29.3993C24.3161 29.4571 24.225 29.4884 24.1316 29.4886C24.0381 29.4889 23.9469 29.4581 23.8711 29.4007L15.8545 23.2865C15.7787 23.2287 15.6875 23.1976 15.5938 23.1976C15.5002 23.1976 15.4089 23.2287 15.3332 23.2865L7.31835 29.4007C7.24256 29.4589 7.15115 29.4903 7.05728 29.4904C6.9634 29.4906 6.87192 29.4593 6.796 29.4014C6.72008 29.3434 6.66365 29.2617 6.63484 29.1679C6.60602 29.0741 6.60631 28.9732 6.63567 28.8796L9.69623 18.9889C9.72545 18.8955 9.72581 18.7947 9.69715 18.7011C9.6685 18.6074 9.61226 18.5257 9.53663 18.4677L1.52 12.3573C1.44445 12.2995 1.38826 12.218 1.35945 12.1246C1.33064 12.0312 1.33071 11.9307 1.35962 11.8373C1.38854 11.744 1.44484 11.6627 1.52046 11.605C1.59609 11.5472 1.68716 11.5161 1.78067 11.5159H11.6893C11.783 11.516 11.8744 11.4849 11.9502 11.4271C12.026 11.3692 12.0824 11.2876 12.1113 11.194L15.1718 1.3014Z"
+                stroke="#4D44CC" stroke-width="0.712798" />
+            </svg>
+          </div>
+          <div>
+            <div
+              class="flex items-center gap-2 font-semibold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+              Accurate Coverage Verification
+            </div>
+            <p
+              class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+              Ensure that patients have the necessary coverage for treatments, reducing the risk of denied claims.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-row gap-6">
+          <div>
+            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15.1718 1.3014C15.2005 1.20762 15.2569 1.12583 15.3327 1.0678C15.4086 1.00978 15.5 0.978516 15.5938 0.978516C15.6877 0.978516 15.7791 1.00978 15.8549 1.0678C15.9308 1.12583 15.9872 1.20762 16.0159 1.3014L19.0764 11.1921C19.1053 11.2857 19.1617 11.3673 19.2375 11.4251C19.3133 11.483 19.4047 11.5142 19.4984 11.5141H29.407C29.5005 11.5142 29.5916 11.5454 29.6672 11.6031C29.7429 11.6608 29.7991 11.7422 29.8281 11.8355C29.857 11.9289 29.8571 12.0294 29.8283 12.1227C29.7994 12.2161 29.7432 12.2975 29.6677 12.3554L21.6528 18.4696C21.5769 18.5274 21.5203 18.6089 21.4913 18.7026C21.4623 18.7962 21.4624 18.8971 21.4915 18.9908L24.552 28.8796C24.5809 28.9729 24.5809 29.0734 24.5521 29.1667C24.5233 29.2601 24.4671 29.3415 24.3915 29.3993C24.3161 29.4571 24.225 29.4884 24.1316 29.4886C24.0381 29.4889 23.9469 29.4581 23.8711 29.4007L15.8545 23.2865C15.7787 23.2287 15.6875 23.1976 15.5938 23.1976C15.5002 23.1976 15.4089 23.2287 15.3332 23.2865L7.31835 29.4007C7.24256 29.4589 7.15115 29.4903 7.05728 29.4904C6.9634 29.4906 6.87192 29.4593 6.796 29.4014C6.72008 29.3434 6.66365 29.2617 6.63484 29.1679C6.60602 29.0741 6.60631 28.9732 6.63567 28.8796L9.69623 18.9889C9.72545 18.8955 9.72581 18.7947 9.69715 18.7011C9.6685 18.6074 9.61226 18.5257 9.53663 18.4677L1.52 12.3573C1.44445 12.2995 1.38826 12.218 1.35945 12.1246C1.33064 12.0312 1.33071 11.9307 1.35962 11.8373C1.38854 11.744 1.44484 11.6627 1.52046 11.605C1.59609 11.5472 1.68716 11.5161 1.78067 11.5159H11.6893C11.783 11.516 11.8744 11.4849 11.9502 11.4271C12.026 11.3692 12.0824 11.2876 12.1113 11.194L15.1718 1.3014Z"
+                stroke="#4D44CC" stroke-width="0.712798" />
+            </svg>
+          </div>
+          <div>
+            <div
+              class="flex items-center gap-2 font-semibold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+              Reduce Costs
+            </div>
+            <p
+              class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+              Minimise costs associated with claim rejections and administrative errors.
+            </p>
+          </div>
+
+        </div>
+        <div class="flex flex-row gap-6">
+          <div>
+            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15.1718 1.3014C15.2005 1.20762 15.2569 1.12583 15.3327 1.0678C15.4086 1.00978 15.5 0.978516 15.5938 0.978516C15.6877 0.978516 15.7791 1.00978 15.8549 1.0678C15.9308 1.12583 15.9872 1.20762 16.0159 1.3014L19.0764 11.1921C19.1053 11.2857 19.1617 11.3673 19.2375 11.4251C19.3133 11.483 19.4047 11.5142 19.4984 11.5141H29.407C29.5005 11.5142 29.5916 11.5454 29.6672 11.6031C29.7429 11.6608 29.7991 11.7422 29.8281 11.8355C29.857 11.9289 29.8571 12.0294 29.8283 12.1227C29.7994 12.2161 29.7432 12.2975 29.6677 12.3554L21.6528 18.4696C21.5769 18.5274 21.5203 18.6089 21.4913 18.7026C21.4623 18.7962 21.4624 18.8971 21.4915 18.9908L24.552 28.8796C24.5809 28.9729 24.5809 29.0734 24.5521 29.1667C24.5233 29.2601 24.4671 29.3415 24.3915 29.3993C24.3161 29.4571 24.225 29.4884 24.1316 29.4886C24.0381 29.4889 23.9469 29.4581 23.8711 29.4007L15.8545 23.2865C15.7787 23.2287 15.6875 23.1976 15.5938 23.1976C15.5002 23.1976 15.4089 23.2287 15.3332 23.2865L7.31835 29.4007C7.24256 29.4589 7.15115 29.4903 7.05728 29.4904C6.9634 29.4906 6.87192 29.4593 6.796 29.4014C6.72008 29.3434 6.66365 29.2617 6.63484 29.1679C6.60602 29.0741 6.60631 28.9732 6.63567 28.8796L9.69623 18.9889C9.72545 18.8955 9.72581 18.7947 9.69715 18.7011C9.6685 18.6074 9.61226 18.5257 9.53663 18.4677L1.52 12.3573C1.44445 12.2995 1.38826 12.218 1.35945 12.1246C1.33064 12.0312 1.33071 11.9307 1.35962 11.8373C1.38854 11.744 1.44484 11.6627 1.52046 11.605C1.59609 11.5472 1.68716 11.5161 1.78067 11.5159H11.6893C11.783 11.516 11.8744 11.4849 11.9502 11.4271C12.026 11.3692 12.0824 11.2876 12.1113 11.194L15.1718 1.3014Z"
+                stroke="#4D44CC" stroke-width="0.712798" />
+            </svg>
+          </div>
+          <div>
+            <div
+              class="flex items-center gap-2 font-semibold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+              Streamlined Administration
+            </div>
+            <p
+              class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+              Streamline administrative processes, allowing your <br class="hidden sm:br-custom lg:inline" /> staff to
+              focus on patient care rather than
+              <br class="hidden sm:br-custom lg:inline" />
+              administrative tasks.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-row gap-6">
+          <div>
+            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15.1718 1.3014C15.2005 1.20762 15.2569 1.12583 15.3327 1.0678C15.4086 1.00978 15.5 0.978516 15.5938 0.978516C15.6877 0.978516 15.7791 1.00978 15.8549 1.0678C15.9308 1.12583 15.9872 1.20762 16.0159 1.3014L19.0764 11.1921C19.1053 11.2857 19.1617 11.3673 19.2375 11.4251C19.3133 11.483 19.4047 11.5142 19.4984 11.5141H29.407C29.5005 11.5142 29.5916 11.5454 29.6672 11.6031C29.7429 11.6608 29.7991 11.7422 29.8281 11.8355C29.857 11.9289 29.8571 12.0294 29.8283 12.1227C29.7994 12.2161 29.7432 12.2975 29.6677 12.3554L21.6528 18.4696C21.5769 18.5274 21.5203 18.6089 21.4913 18.7026C21.4623 18.7962 21.4624 18.8971 21.4915 18.9908L24.552 28.8796C24.5809 28.9729 24.5809 29.0734 24.5521 29.1667C24.5233 29.2601 24.4671 29.3415 24.3915 29.3993C24.3161 29.4571 24.225 29.4884 24.1316 29.4886C24.0381 29.4889 23.9469 29.4581 23.8711 29.4007L15.8545 23.2865C15.7787 23.2287 15.6875 23.1976 15.5938 23.1976C15.5002 23.1976 15.4089 23.2287 15.3332 23.2865L7.31835 29.4007C7.24256 29.4589 7.15115 29.4903 7.05728 29.4904C6.9634 29.4906 6.87192 29.4593 6.796 29.4014C6.72008 29.3434 6.66365 29.2617 6.63484 29.1679C6.60602 29.0741 6.60631 28.9732 6.63567 28.8796L9.69623 18.9889C9.72545 18.8955 9.72581 18.7947 9.69715 18.7011C9.6685 18.6074 9.61226 18.5257 9.53663 18.4677L1.52 12.3573C1.44445 12.2995 1.38826 12.218 1.35945 12.1246C1.33064 12.0312 1.33071 11.9307 1.35962 11.8373C1.38854 11.744 1.44484 11.6627 1.52046 11.605C1.59609 11.5472 1.68716 11.5161 1.78067 11.5159H11.6893C11.783 11.516 11.8744 11.4849 11.9502 11.4271C12.026 11.3692 12.0824 11.2876 12.1113 11.194L15.1718 1.3014Z"
+                stroke="#4D44CC" stroke-width="0.712798" />
+            </svg>
+          </div>
+          <div>
+            <div
+              class="flex items-center gap-2 font-semibold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+              Improve Patient Experience
+            </div>
+            <p
+              class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+              Provide a smoother, more efficient experience for<br class="hidden sm:br-custom lg:inline" />patients by
+              ensuring their insurance information
+              is<br class="hidden sm:br-custom lg:inline" />
+              accurate and up to date.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="bg-[#DFE4FE] py-16 px-6 my-12">
+    <div class="mx-[8%] lg:mx-[8%]  mx-auto items-center">
+      <!-- Heading -->
+      <h2
+        class="font-bold text-[28px] leading-[36px] sm:text-[32px] sm:leading-[42px] md:text-[35.92px] md:leading-[46.7px] text-center align-middle text-[#4D44CC]">
+        Practice Management
+      </h2>
+      <p
+        class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] text-center align-middle text-[#4D44CC] mt-2">
+        You can outsource your secretarial support to Medserv as well.
+      </p>
+      <!-- Left content -->
+      <div class="grid lg:grid-cols-3 lg:gap-12 pl-[6%]">
+
+        <!-- Features Grid -->
+        <div class="mt-10">
+
+          <!-- Feature Item -->
+          <div class="flex items-start pb-3 pb-8">
+            <img src="./assets/images/mark.svg" />
+            <div>
+              <h3
+                class="font-bold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+                Adjustable Workforce
+              </h3>
+              <p
+                class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+                Scale secretarial support according to demand, accommodating peak times, seasonal variations, or growth
+                of your hospital.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 pb-8">
+            <img src="./assets/images/mark.svg" />
+            <div>
+              <h3
+                class="font-bold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+                Streamlined Processes
+              </h3>
+              <p
+                class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+                Efficiently handle scheduling, billing, and patient records.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 pb-8">
+            <img src="./assets/images/mark.svg" />
+            <div>
+              <h3
+                class="font-bold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+                Compliance and Regulations
+              </h3>
+              <p
+                class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+                Ensure adherence to healthcare regulations and compliance requirements with knowledgeable staff.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-0 lg:mt-10">
+
+          <div class="flex items-start gap-3 pb-8">
+            <img src="./assets/images/mark.svg" />
+            <div>
+              <h3
+                class="font-bold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+                Reduced Overhead
+              </h3>
+              <p
+                class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+                Eliminate the need for office space, equipment, and utilities required for on-site secretarial staff.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 pb-8">
+            <img src="./assets/images/mark.svg" />
+            <div>
+              <h3
+                class="font-bold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+                Professional Services
+              </h3>
+              <p
+                class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+                Access skilled professionals with expertise in medical administrative tasks.
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="flex justify-center lg:justify-end">
+          <img src="./assets/images/mobileinhand.png" alt="Practice Management"
+            class="max-w-sm w-full drop-shadow-xl" />
+        </div>
+      </div>
+
+      <!-- Right image -->
+
+    </div>
+  </section>
+
+
+  <section class="mx-[8%] lg:mx-[14%] py-12">
+    <!-- Heading -->
+    <h2
+      class="font-bold text-[28px] leading-[36px] sm:text-[32px] sm:leading-[42px] md:text-[35.92px] md:leading-[46.7px] text-center align-middle text-[#4D44CC]">
+      Complete Handling of Claims
+    </h2>
+    <p
+      class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] text-center align-middle text-[#4D44CC] mt-2">
+      At Medserv, we also provide a complete handling of claims, including:
+    </p>
+
+    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+      <!-- Image -->
+      <div class="flex-1">
+        <img src="./assets/images/handleclaim.png" alt="Handle Claim" class="w-full h-auto">
+      </div>
+
+      <!-- Text -->
+      <div class="flex-1">
+        <div class="flex items-start gap-3 pb-8">
+          <div class="mt-4">
+            <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+                fill="#4D44CC" />
+            </svg>
+          </div>
+          <div>
+            <h3
+              class="font-semibold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+              Patient claim form signature capture
+            </h3>
+            <p
+              class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+              Ensuring that all necessary signatures are obtained accurately and efficiently.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 pb-8">
+          <div class="mt-4">
+            <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+                fill="#4D44CC" />
+            </svg>
+          </div>
+          <div>
+            <h3
+              class="font-semibold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+              Claim Generation
+            </h3>
+            <p
+              class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+              Streamlining the process of creating and submitting claims.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 pb-8">
+          <div class="mt-4">
+            <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+                fill="#4D44CC" />
+            </svg>
+          </div>
+          <div>
+            <h3
+              class="font-semibold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+              Revenue Reconciliation
+            </h3>
+            <p
+              class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+              Identifying underpaid claims or uncollected revenue and managing the reconciliation process.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 pb-8">
+          <div class="mt-4">
+            <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+                fill="#4D44CC" />
+            </svg>
+          </div>
+          <div>
+            <h3
+              class="font-semibold text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC]">
+              Management of High-Volume Claims
+            </h3>
+            <p
+              class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] align-middle text-[#4D44CC]">
+              (e.g. efficiently handling the subset of Radiology claims to ensure accurate capture, processing and
+              payment)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 sm:mt-16 md:mt-20 flex justify-center">
+      <a href="#"
+        class="px-6 md:px-8 py-3 md:py-4 rounded-md bg-[#5D38BB] opacity-100 flex items-center justify-center text-white font-bold text-sm sm:text-base md:text-lg leading-normal">
+        Connect with us
+      </a>
+    </div>
+  </section>
+
+
+  <section class="w-full  py-12">
+    <!-- Top 3-column purple feature row -->
+    <div class="bg-[#4D44CC]">
+      <div class="grid md:grid-cols-3 mx-[8%] lg:mx-[14%] border-l-[0.83px] md:border-[#DFE4FE] md:border-0">
+        <!-- Card 1 -->
+        <div class="p-8 text-center text-[#4D44CC] bg-[#DFE4FE]">
+          <img class="mx-auto mb-4" src="./assets/images/assistance.svg">
+          <h3 class="font-catamaran font-semibold text-xl mb-6">
+            Assistance with Registration
+          </h3>
+          <p class="text-sm leading-relaxed">
+            We manage all communication with insurers on behalf of consultants, addressing any questions or concerns
+            that arise during the registration process.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div
+          class="p-8 text-center text-[#EFF1FF] border-r-[0.83px] border-r-[#DFE4FE] border-b-[0.83px] md:border-b-0">
+          <img class="mx-auto mb-4" src="./assets/images/handlingcommunication.svg">
+          <h3 class="font-catamaran font-semibold text-xl mb-6">
+            Handling Communication
+          </h3>
+          <p class="text-sm leading-relaxed">
+            We manage all communication with insurers on behalf of consultants, addressing any questions or concerns
+            that arise during the registration process.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="p-8 text-center text-[#EFF1FF] border-r-[0.83px] border-r-[#DFE4FE]">
+          <img class="mx-auto mb-4" src="./assets/images/processupdate.svg">
+          <h3 class="font-catamaran font-semibold text-xl mb-6">
+            Process Updates
+          </h3>
+          <p class="text-sm leading-relaxed">
+            We keep consultants informed about the status of their registration, providing regular updates and ensuring
+            transparency throughout the process.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="mx-[8%] lg:mx-[14%] py-12">
+    <!-- Heading -->
+    <h2
+      class="font-bold text-[28px] leading-[36px] sm:text-[32px] sm:leading-[42px] md:text-[35.92px] md:leading-[46.7px] text-center align-middle text-[#4D44CC]">
+      Clinician Registration and Verification
+    </h2>
+    <p
+      class="md:mx-[20%] font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] text-center align-middle text-[#4D44CC] mt-2">
+      We understand that insurer registration can be challenging, with each insurer having its own unique process and
+      set of forms. Here is our solution:
+    </p>
+    <p
+      class="md:mr-[20%] font-normal text-[18px] leading-[28px] sm:text-[21px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] align-middle text-[#4D44CC] mt-2">
+      <span class="text-[#B500BA]">After registration</span>, we also assist with billing management for Hospital
+      employed Consultants. Some of the services we provide are:
+    </p>
+    <!-- Bottom section -->
+    <div class="bg-white py-16 px-6">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left content -->
+        <div>
+          <!-- Features -->
+          <div class="space-y-6">
+            <!-- Item 1 -->
+            <div class="flex items-start gap-3">
+              <div class="mt-4">
+                <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+                    fill="#4D44CC" />
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="font-semibold text-[20px] leading-[30px] sm:text-[22px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] text-[#4D44CC] align-middle">
+                  Simplified Coding Process
+                </h3>
+                <p
+                  class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] text-[#4D44CC] align-middle">
+                  As a Medserv client, you have access to our Code Search function on our website to confirm the
+                  relevant code. Our experienced team can also help confirm the appropriate code to be billed.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="flex items-start gap-3">
+              <div class="mt-4">
+                <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+                    fill="#4D44CC" />
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="font-semibold text-[20px] leading-[30px] sm:text-[22px] sm:leading-[32px] md:text-[23.95px] md:leading-[35.92px] text-[#4D44CC] align-middle">
+                  Schedule of Benefits
+                </h3>
+                <p
+                  class="font-normal text-[15px] leading-[22px] sm:text-[16.5px] sm:leading-[24px] md:text-[17.96px] md:leading-[26.94px] text-[#4D44CC] align-middle">
+                  We ensure your billing is compliant with the Schedules of Benefits from various Private Health
+                  Insurance Providers, minimising errors and speeding up the claim process.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right image -->
+        <div class="flex justify-center lg:justify-end">
+          <img src="./assets//images/registerationclick.png" alt="Registration"
+            class="max-w-md w-full drop-shadow-xl" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Learn More Section -->
+
+  <section class="flex flex-col md:flex-row items-center justify-center gap-6 px-4 text-center md:text-left py-20">
+    <p class="text-[#4C46C7] font-catamaran font-[500] text-[36px] md:text-[44px] leading-[50px] tracking-tight">
+      Looking to learn more about Medserv?
+    </p>
+    <button
+      class="bg-[#4C46C7] px-6 py-3 rounded-full shadow hover:bg-[#3932A6] transition text-white font-catamaran font-[500] text-[19px] leading-[33px]">
+      Connect with us
+    </button>
+  </section>
+  <footer class="bg-[#4C46C7] text-white">
+    <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 pt-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-16">
+        <a href="./homepage.html" class="flex justify-start md:justify-start">
+          <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[180px] h-[80px] object-contain">
+        </a>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">Who We Serve</h3>
+          <ul class="space-y-3">
+            <li><a href="./individualconsultantbilling.html" class="text-[#B8BCC4] hover:underline">Individual
+                Consultant Billing</a></li>
+            <li><a href="./group-administration.html" class="text-[#B8BCC4] hover:underline">Groups</a></li>
+            <li><a href="./hospitalclinicbilling.html" class="text-[#B8BCC4] hover:underline">Hospital/Clinical
+                Billing</a></li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">What We Do</h3>
+          <ul class="space-y-3">
+            <li><a href="./billing-services.html" class="text-[#B8BCC4] hover:underline">Billing Services</a></li>
+            <li><a href="./software.html" class="text-[#B8BCC4] hover:underline">Software</a></li>
+            <li><a href="./remote-practise.html" class="text-[#B8BCC4] hover:underline">Remote Practice Management</a>
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">About</h3>
+          <ul class="space-y-3">
+            <li><a href="./about.html" class="text-[#B8BCC4] hover:underline">About Us</a></li>
+            <li><a href="./news.html" class="text-[#B8BCC4] hover:underline">News</a></li>
+            <li><a href="./reviews.html" class="text-[#B8BCC4] hover:underline">Reviews</a></li>
+            <li><a href="./careers.html" class="text-[#B8BCC4] hover:underline">Careers</a></li>
+            <li><a href="./contact-us.html" class="text-[#B8BCC4] hover:underline">Contact Us</a></li>
+            <li><a href="./privacyPolicy.html" class="text-[#B8BCC4] hover:underline">Privacy Policy</a>
+            </li>
+            <li><a href="./legalNotice.html" class="text-[#B8BCC4] hover:underline">Legal Notice</a></li>
+            <li><a href="./faqs.html" class="text-[#B8BCC4] hover:underline">FAQs</a></li>
+            <li><a href="./onlineBillPayment.html" class="text-[#B8BCC4] hover:underline">Online Billing
+                Payment</a></li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">Get in Touch</h3>
+          <div class="flex space-x-3">
+            <!-- Facebook -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-[#3b5998]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15" fill="currentColor">
+                <path
+                  d="M7.90924 5.15357V3.27857C7.90946 3.15538 7.93254 3.03345 7.97714 2.91973C8.02174 2.80602 8.08699 2.70277 8.16917 2.61587C8.25135 2.52896 8.34884 2.46012 8.45607 2.41328C8.5633 2.36644 8.67818 2.34251 8.79412 2.34286H9.67563V0H7.91092C7.56345 -0.000117134 7.21938 0.0724976 6.89833 0.213697C6.57728 0.354896 6.28556 0.561913 6.03982 0.822924C5.79409 1.08393 5.59915 1.39382 5.46615 1.73489C5.33316 2.07596 5.26471 2.44153 5.26471 2.81071V5.15357H3.5V7.5H5.26471V15H7.91009V7.5H9.6748L10.5588 5.15357H7.90924Z" />
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-red-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 19 13" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M7.58902 8.90139V3.69042C9.48161 4.56089 10.9474 5.40178 12.681 6.30837C11.2512 7.08346 9.48161 7.95313 7.58902 8.90139ZM18.1365 1.09876C17.81 0.678343 17.2536 0.351082 16.6612 0.242737C14.92 -0.0804524 4.05744 -0.0813717 2.31719 0.242737C1.84215 0.329781 1.41914 0.54018 1.05577 0.867074C-0.475344 2.25612 0.00443287 9.70515 0.37349 10.9118C0.528682 11.4341 0.729306 11.8107 0.981967 12.058C1.30749 12.3849 1.75319 12.61 2.26514 12.7109C3.69878 13.0007 11.0846 13.1628 16.6309 12.7544C17.1419 12.6674 17.5942 12.435 17.951 12.0943C19.3666 10.7108 19.2701 2.84341 18.1365 1.09876Z" />
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15" fill="currentColor">
+                <path
+                  d="M0 1.89185V13.1082C0 14.1669 0.833133 15 1.89185 15H13.1082C13.6263 15 14.1215 14.7521 14.4371 14.4371C14.7751 14.0991 15 13.671 15 13.1082V1.89185C15 0.833133 14.1669 0 13.1082 0H1.89185C1.32898 0 0.900879 0.22558 0.562869 0.562869C0.247201 0.878538 0 1.37366 0 1.89185ZM2.02734 3.37794C2.02734 2.65723 2.61327 2.02662 3.33397 2.02662C4.07702 2.02662 4.68529 2.65723 4.68529 3.37794C4.68529 4.12098 4.07702 4.70691 3.33397 4.70691C2.61327 4.70691 2.02734 4.12098 2.02734 3.37794ZM5.6532 12.6347V5.76563C5.6532 5.60779 5.81103 5.47302 5.92346 5.47302H7.83765C8.10791 5.47302 8.10791 5.78869 8.10791 5.99121C8.64844 5.45068 9.3468 5.31519 10.0675 5.31519C11.8246 5.31519 12.9503 6.14832 12.9503 7.99548V12.6354C12.9503 12.7932 12.8148 12.928 12.6801 12.928H10.6981C10.5403 12.928 10.4279 12.7701 10.4279 12.6354V8.44592C10.4279 7.74756 10.2253 7.36487 9.43689 7.36487C8.44592 7.36487 8.198 8.01783 8.198 8.89636V12.6354C8.198 12.7932 8.04017 12.928 7.88233 12.928H5.92274C5.81031 12.928 5.65248 12.7701 5.65248 12.6354L5.6532 12.6347ZM2.07202 12.6347V5.76563C2.07202 5.60779 2.22986 5.47302 2.34229 5.47302H4.30188C4.48205 5.47302 4.59448 5.58545 4.59448 5.76563V12.6347C4.59448 12.7925 4.45899 12.9273 4.30188 12.9273H2.34229C2.20679 12.9273 2.07202 12.7694 2.07202 12.6347Z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-black">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 13 13" fill="currentColor">
+                <path
+                  d="M12.0669 11.6739L7.71098 5.48975L7.21853 4.79034L4.10258 0.366604L3.84443 0H0.015625L0.949434 1.32611L5.09242 7.20866L5.58488 7.90733L8.91367 12.6338L9.17194 13.0001H13.0007L12.0669 11.674V11.6739ZM9.62697 12.1536L6.16861 7.24331L5.67615 6.54433L1.66306 0.846354H3.38929L6.63469 5.45436L7.12715 6.15334L11.3532 12.1535H9.62697V12.1536Z" />
+                <path
+                  d="M5.67552 6.54297L6.16797 7.24195L5.58414 7.90597L1.10464 12.9987H0L5.09168 7.2073L5.67552 6.54297Z" />
+                <path
+                  d="M12.5378 0L7.70911 5.48975L7.12527 6.15334L6.63281 5.45436L7.21665 4.79034L10.4876 1.06987L11.4332 0H12.5378Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-300 pt-8 pb-8">
+        <p class="font-normal text-[#B8BCC4] text-sm text-center md:text-left">© 2025 Medserv</p>
+      </div>
+    </div>
+  </footer>
+  <script src="./assets/js/script.js"></script>
+
+
+</body>
+
+</html>

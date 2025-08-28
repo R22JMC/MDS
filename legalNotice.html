@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Legal Notice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-white text-[#333] font-sans">
+  <header class="bg-[#4C46C7] relative">
+    <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 py-16 flex items-center justify-between h-[100px]">
+      <a href="./homepage.html" class="flex-shrink-0 cursor-pointer">
+        <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[160px] h-[65px] object-contain"
+          style="cursor: pointer;">
+      </a>
+      <div class="flex items-center space-x-10">
+        <nav class="hidden xl:flex items-center space-x-8 text-white font-normal tracking-[0.57px]">
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              Who We Serve
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li><a href="./individualconsultantbilling.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Individual
+                    Consultant Billing</a></li>
+                <li><a href="./group-administration.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Groups</a></li>
+                <li><a href="./hospitalclinicbilling.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Hospital/Clinical
+                    Billing</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              What We Do
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li>
+                  <a href="./billing-services.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    Billing Services
+                  </a>
+                </li>
+                <li><a href="./software.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Software</a>
+                </li>
+                <li><a href="./remote-practise.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Remote
+                    Practice
+                    Management</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              About
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li><a href="./about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">About
+                    Us</a>
+                </li>
+                <li><a href="./news.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">News</a></li>
+                <li><a href="./reviews.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Reviews</a></li>
+                <li><a href="./careers.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Careers</a></li>
+                <li><a href="./contact-us.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="./contact-us.html" class="hover:opacity-80">Contact Us</a>
+        </nav>
+        <div class="hidden xl:flex items-center space-x-4">
+          <a href="#"
+            class="px-6 py-2 border border-white rounded-full text-white hover:bg-white hover:text-[#343434] transition tracking-[0.57px]">
+            Client Login
+          </a>
+          <a href="./onlineBillPayment.html"
+            class="px-6 py-2 bg-[#ECF2FD] text-[#343434] font-normal rounded-full hover:bg-[#d6e4fb] transition tracking-[0.57px]">
+            Pay Your Bill
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Btn (Hamburger Only) -->
+      <div class="xl:hidden relative">
+        <button id="mobile-menu-button" class="text-white text-[30px]" aria-controls="mobile-menu"
+          aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Animated + Accordion) -->
+     <div id="mobile-menu"
+      class="xxl:hidden fixed inset-y-0 right-0 w-full md:w-[400px] bg-[#4C46C7] text-white transform translate-x-full transition-transform duration-500 ease-in-out z-50 overflow-y-auto h-full"
+      aria-hidden="true">
+
+      <nav class="flex flex-col space-y-2 p-6 font-medium">
+        <!-- Close Button (X Icon) -->
+        <button id="mobile-menu-close" class="self-end text-white text-[30px] hidden" aria-label="Close menu">
+          ✕
+        </button>
+
+        <!-- Accordion: Who We Serve -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-who">
+          <span>Who We Serve</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-who" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./individualconsultantbilling.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Individual
+            Consultant Billing</a>
+          <a href="./group-administration.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Groups</a>
+          <a href="./hospitalclinicbilling.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Hospital/Clinical
+            Billing</a>
+        </div>
+
+        <!-- Accordion: What We Do -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-what">
+          <span>What We Do</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-what" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./billing-services.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Billing
+            Services</a>
+          <a href="./software.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Software</a>
+          <a href="./remote-practise.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Remote
+            Practice Management</a>
+        </div>
+
+        <!-- Accordion: About -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-about">
+          <span>About</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-about" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./about.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">About Us</a>
+          <a href="./news.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">News</a>
+          <a href="./reviews.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Reviews</a>
+          <a href="./careers.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Careers</a>
+          <a href="./contact-us.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Contact Us</a>
+        </div>
+
+        <a href="./contact-us.html" class="hover:text-gray-200 py-2">Contact Us</a>
+        <hr class="my-2 border-white/20 pt-2 pb-2">
+        <div class="flex items-center gap-4 py-2">
+          <a href="#"
+            class="px-4 py-2 border border-white rounded-full text-white hover:bg-white hover:text-[#343434] transition">Client
+            Login</a>
+          <a href="./onlineBillPayment.html"
+            class="px-4 py-2 bg-[#ECF2FD] text-[#343434] font-normal rounded-full hover:bg-[#d6e4fb] transition">Pay
+            Your Bill</a>
+        </div>
+      </nav>
+    </div>
+    <!-- Backdrop for mobile menu -->
+    <div id="mobile-menu-backdrop"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden xxl:hidden transition-opacity duration-500" aria-hidden="true">
+    </div>
+  </header>
+  <div class="max-w-4xl mx-auto px-6 py-12">
+
+    <h1 class="font-catamaran font-bold text-[64px] leading-[120%] tracking-[0.57px] text-center text-[#343434] mb-8">
+      Legal Notice
+    </h1>
+
+    <div class="flex flex-col md:flex-row items-center 
+    text-white px-6 md:px-8 py-6 md:py-8 rounded-2xl md:rounded-full shadow-md mb-10 
+    max-w-4xl mx-auto gap-4 md:gap-0"
+      style="background: linear-gradient(180deg, #0093F6 0%, #4D44CC 50%, #5100A1 100%);">
+
+      <!-- Icon -->
+      <div class="w-full md:w-[20%] flex justify-center md:justify-center">
+        <img src="./assets/images/exclamataryIcon.png" alt="Important Icon"
+          class="max-w-[60px] md:max-w-[80px] h-auto" />
+      </div>
+
+      <!-- Text -->
+      <div class="w-full md:w-[80%] text-center md:text-left">
+        <p
+          class="font-catamaran font-semibold text-[28px] sm:text-[36px] md:text-[52px] leading-[120%] tracking-[0.57px]">
+          IMPORTANT
+        </p>
+        <p
+          class="font-catamaran font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[150%] tracking-[0.57px]">
+          Please read the following legal notice carefully. This notice sets out the basis upon which you are
+          entitled to access this website.
+        </p>
+      </div>
+    </div>
+
+
+
+    <!-- Privacy Statement -->
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      Access to Website
+    </h2>
+
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      You are permitted to access the public areas of this website for the purposes of browsing, subject to
+      compliance with this Legal Notice. Any other use of the content and software on this website, including the
+      reproduction, modification, distribution, transmission, republication, display or performance of the content
+      on this website is strictly prohibited.</p>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      This website or any portion of the website may not be reproduced, duplicated, copied, sold, resold or
+      otherwise exploited for any commercial purpose that is not expressly permitted by MedServ. MedServ reserves
+      the right to refuse access to the website and/or the services contained therein in its discretion,
+      including, without limitation, if MedServ believes that particular conduct violates applicable law, is
+      harmful to the interests of MedServ or is in breach of this Legal Notice.</p>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      This website also contains non-public areas which are only accessible to customers of Medserv wishing to
+      avail of Medserv’s services. Access is granted through the use of dedicated user names and passwords and is
+      subject to terms and conditions. This website contains information on Medserv’s services and how to become a
+      customer of Medserv.
+    </p>
+
+    <!-- General Statement -->
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      Intellectual Property (including copyright)</h2>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      All content included on this website, such as text, graphics, logos, button icons, images, audio clips and
+      software is the property of MedServ or its content suppliers and is protected by applicable copyright and/or
+      other intellectual property laws.</p>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      The compilation (meaning the collection, arrangement and assembly) of all content on this site is the
+      exclusive property of Medserv and is protected by applicable copyright and/or other intellectual property
+      laws.</p>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      You acknowledge that you are only permitted to use any material contained on this website as authorised by
+      MedServ and you further agree not to copy, reproduce, transmit, distribute or create derivative works of
+      such material without the prior written authorisation of Medserv.
+    </p>
+
+    <!-- Collection -->
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      Links to Other Websites</h2>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      Medserv may provide links to websites operated by third parties. Such links are provided for your
+      convenience only. Medserv has no control over these sites and is not responsible for their availability or
+      content. Inclusion by Medserv of links to such sites does not imply any endorsement of the material on such
+      sites or any association with their operators.
+    </p>
+
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      If you wish to include a link to this website on your third party website, you may do so if (i) you obtain
+      our consent in advance, (ii) you comply with this Legal Notice; and (iii) you link to the first page of this
+      website.
+    </p>
+
+    <!-- Marketing -->
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      Compliance with Applicable Laws</h2>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      Due to the global nature of the Internet, your access to and use of this site is subject to compliance with
+      all local laws regarding on-line conduct and acceptable content.
+    </p>
+
+    <!-- Cookies -->
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      Privacy Statement</h2>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      Privacy Policy
+    </p>
+
+    <!-- Right of Access -->
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      Limitation of Liability and Disclaimer
+    </h2>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      Medserv will use its reasonable endeavours to ensure that its website is fully operational at all times.
+      However, due to the nature of interactive services and the Internet generally, Medserv cannot guarantee that
+      its website will be free from delays, interruptions or errors.</p>
+
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      Whilst all reasonable efforts are made to ensure that any information contained on the website is correct,
+      Medserv gives no representations or warranties, express or implied in relation to the accuracy or
+      completeness of said information.</p>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      Except as expressly set out in this Legal Notice, all representations, warranties, terms and conditions
+      whether express or implied in relation to this website or the information contained therein are hereby
+      excluded to the fullest extent permitted by law.</p>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      Due to the fact that Medserv cannot guarantee that its website will be fault free or that the information
+      contained on the website will be correct, Medserv does not accept any liability for any damage or loss
+      suffered by you (whether direct, indirect, special, incidental, punitive or consequential loss, including
+      loss of profits) arising as a result of the website or the information contained therein (including any
+      errors, inaccuracies or omissions in such information or any faults, interruptions or delays in connection
+      with the website).
+    </p>
+
+    <!-- Changes -->
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      Indemnity</h2>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      You will indemnify Medserv from and against any loss, damage or expense incurred by Medserv arising out of
+      your misuse of the website and/or services of Medserv or the information accessible through the website.
+    </p>
+
+    <!-- Contact -->
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      General</h2>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      This Legal Notice and/or our Privacy Statement may be amended from time to time by Medserv. Any changes will
+      be notified to visitors to the website.</p>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      Please note that Medserv has the ability to trace your IP address and if necessary contact your Internet
+      Service Provider in the event of a suspected breach of this Legal Notice.
+    </p>
+
+    <h2 class="font-catamaran font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7] mb-2">
+      Governing Law</h2>
+    <p class="font-catamaran font-normal text-[16px] leading-[170%] tracking-[0.57px] text-[#343434] mb-6 text-justify">
+      This Legal Notice is governed by the laws of Ireland.</p>
+
+  </div>
+  <footer class="bg-[#4C46C7] text-white">
+    <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 pt-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-16">
+        <a href="./homepage.html" class="flex justify-start md:justify-start">
+          <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[180px] h-[80px] object-contain">
+        </a>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">Who We Serve</h3>
+          <ul class="space-y-3">
+            <li><a href="./individualconsultantbilling.html" class="text-[#B8BCC4] hover:underline">Individual
+                Consultant Billing</a></li>
+            <li><a href="./group-administration.html" class="text-[#B8BCC4] hover:underline">Groups</a></li>
+            <li><a href="./hospitalclinicbilling.html" class="text-[#B8BCC4] hover:underline">Hospital/Clinical
+                Billing</a></li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">What We Do</h3>
+          <ul class="space-y-3">
+            <li><a href="./billing-services.html" class="text-[#B8BCC4] hover:underline">Billing Services</a></li>
+            <li><a href="./software.html" class="text-[#B8BCC4] hover:underline">Software</a></li>
+            <li><a href="./remote-practise.html" class="text-[#B8BCC4] hover:underline">Remote Practice Management</a>
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">About</h3>
+          <ul class="space-y-3">
+            <li><a href="./about.html" class="text-[#B8BCC4] hover:underline">About Us</a></li>
+            <li><a href="./news.html" class="text-[#B8BCC4] hover:underline">News</a></li>
+            <li><a href="./reviews.html" class="text-[#B8BCC4] hover:underline">Reviews</a></li>
+            <li><a href="./careers.html" class="text-[#B8BCC4] hover:underline">Careers</a></li>
+            <li><a href="./contact-us.html" class="text-[#B8BCC4] hover:underline">Contact Us</a></li>
+            <li><a href="./privacyPolicy.html" class="text-[#B8BCC4] hover:underline">Privacy Policy</a>
+            </li>
+            <li><a href="./legalNotice.html" class="text-[#B8BCC4] hover:underline">Legal Notice</a></li>
+            <li><a href="./faqs.html" class="text-[#B8BCC4] hover:underline">FAQs</a></li>
+            <li><a href="./onlineBillPayment.html" class="text-[#B8BCC4] hover:underline">Online Billing
+                Payment</a></li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">Get in Touch</h3>
+          <div class="flex space-x-3">
+            <!-- Facebook -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-[#3b5998]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15" fill="currentColor">
+                <path
+                  d="M7.90924 5.15357V3.27857C7.90946 3.15538 7.93254 3.03345 7.97714 2.91973C8.02174 2.80602 8.08699 2.70277 8.16917 2.61587C8.25135 2.52896 8.34884 2.46012 8.45607 2.41328C8.5633 2.36644 8.67818 2.34251 8.79412 2.34286H9.67563V0H7.91092C7.56345 -0.000117134 7.21938 0.0724976 6.89833 0.213697C6.57728 0.354896 6.28556 0.561913 6.03982 0.822924C5.79409 1.08393 5.59915 1.39382 5.46615 1.73489C5.33316 2.07596 5.26471 2.44153 5.26471 2.81071V5.15357H3.5V7.5H5.26471V15H7.91009V7.5H9.6748L10.5588 5.15357H7.90924Z" />
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-red-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 19 13" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M7.58902 8.90139V3.69042C9.48161 4.56089 10.9474 5.40178 12.681 6.30837C11.2512 7.08346 9.48161 7.95313 7.58902 8.90139ZM18.1365 1.09876C17.81 0.678343 17.2536 0.351082 16.6612 0.242737C14.92 -0.0804524 4.05744 -0.0813717 2.31719 0.242737C1.84215 0.329781 1.41914 0.54018 1.05577 0.867074C-0.475344 2.25612 0.00443287 9.70515 0.37349 10.9118C0.528682 11.4341 0.729306 11.8107 0.981967 12.058C1.30749 12.3849 1.75319 12.61 2.26514 12.7109C3.69878 13.0007 11.0846 13.1628 16.6309 12.7544C17.1419 12.6674 17.5942 12.435 17.951 12.0943C19.3666 10.7108 19.2701 2.84341 18.1365 1.09876Z" />
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15" fill="currentColor">
+                <path
+                  d="M0 1.89185V13.1082C0 14.1669 0.833133 15 1.89185 15H13.1082C13.6263 15 14.1215 14.7521 14.4371 14.4371C14.7751 14.0991 15 13.671 15 13.1082V1.89185C15 0.833133 14.1669 0 13.1082 0H1.89185C1.32898 0 0.900879 0.22558 0.562869 0.562869C0.247201 0.878538 0 1.37366 0 1.89185ZM2.02734 3.37794C2.02734 2.65723 2.61327 2.02662 3.33397 2.02662C4.07702 2.02662 4.68529 2.65723 4.68529 3.37794C4.68529 4.12098 4.07702 4.70691 3.33397 4.70691C2.61327 4.70691 2.02734 4.12098 2.02734 3.37794ZM5.6532 12.6347V5.76563C5.6532 5.60779 5.81103 5.47302 5.92346 5.47302H7.83765C8.10791 5.47302 8.10791 5.78869 8.10791 5.99121C8.64844 5.45068 9.3468 5.31519 10.0675 5.31519C11.8246 5.31519 12.9503 6.14832 12.9503 7.99548V12.6354C12.9503 12.7932 12.8148 12.928 12.6801 12.928H10.6981C10.5403 12.928 10.4279 12.7701 10.4279 12.6354V8.44592C10.4279 7.74756 10.2253 7.36487 9.43689 7.36487C8.44592 7.36487 8.198 8.01783 8.198 8.89636V12.6354C8.198 12.7932 8.04017 12.928 7.88233 12.928H5.92274C5.81031 12.928 5.65248 12.7701 5.65248 12.6354L5.6532 12.6347ZM2.07202 12.6347V5.76563C2.07202 5.60779 2.22986 5.47302 2.34229 5.47302H4.30188C4.48205 5.47302 4.59448 5.58545 4.59448 5.76563V12.6347C4.59448 12.7925 4.45899 12.9273 4.30188 12.9273H2.34229C2.20679 12.9273 2.07202 12.7694 2.07202 12.6347Z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-black">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 13 13" fill="currentColor">
+                <path
+                  d="M12.0669 11.6739L7.71098 5.48975L7.21853 4.79034L4.10258 0.366604L3.84443 0H0.015625L0.949434 1.32611L5.09242 7.20866L5.58488 7.90733L8.91367 12.6338L9.17194 13.0001H13.0007L12.0669 11.674V11.6739ZM9.62697 12.1536L6.16861 7.24331L5.67615 6.54433L1.66306 0.846354H3.38929L6.63469 5.45436L7.12715 6.15334L11.3532 12.1535H9.62697V12.1536Z" />
+                <path
+                  d="M5.67552 6.54297L6.16797 7.24195L5.58414 7.90597L1.10464 12.9987H0L5.09168 7.2073L5.67552 6.54297Z" />
+                <path
+                  d="M12.5378 0L7.70911 5.48975L7.12527 6.15334L6.63281 5.45436L7.21665 4.79034L10.4876 1.06987L11.4332 0H12.5378Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-300 pt-8 pb-8">
+        <p class="font-normal text-[#B8BCC4] text-sm text-center md:text-left">© 2025 Medserv</p>
+      </div>
+    </div>
+  </footer>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

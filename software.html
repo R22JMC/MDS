@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-white text-[#333] font-sans">
+
+  <!-- Container -->
+  <header class="bg-[#4C46C7] relative">
+    <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 py-16 flex items-center justify-between h-[100px]">
+      <a href="./homepage.html" class="flex-shrink-0 cursor-pointer">
+        <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[160px] h-[65px] object-contain"
+          style="cursor: pointer;">
+      </a>
+      <div class="flex items-center space-x-10">
+        <nav class="hidden xl:flex items-center space-x-8 text-white font-normal tracking-[0.57px]">
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              Who We Serve
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li><a href="./individualconsultantbilling.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Individual
+                    Consultant Billing</a></li>
+                <li><a href="./group-administration.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Groups</a></li>
+                <li><a href="./hospitalclinicbilling.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Hospital/Clinical
+                    Billing</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              What We Do
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li>
+                  <a href="./billing-services.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    Billing Services
+                  </a>
+                </li>
+                <li><a href="./software.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Software</a>
+                </li>
+                <li><a href="./remote-practise.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Remote
+                    Practice
+                    Management</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              About
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li><a href="./about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">About
+                    Us</a>
+                </li>
+                <li><a href="./news.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">News</a></li>
+                <li><a href="./reviews.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Reviews</a></li>
+                <li><a href="./careers.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Careers</a></li>
+                <li><a href="./contact-us.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="./contact-us.html" class="hover:opacity-80">Contact Us</a>
+        </nav>
+        <div class="hidden xl:flex items-center space-x-4">
+          <a href="#"
+            class="px-6 py-2 border border-white rounded-full text-white hover:bg-white hover:text-[#343434] transition tracking-[0.57px]">
+            Client Login
+          </a>
+          <a href="./onlineBillPayment.html"
+            class="px-6 py-2 bg-[#ECF2FD] text-[#343434] font-normal rounded-full hover:bg-[#d6e4fb] transition tracking-[0.57px]">
+            Pay Your Bill
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Btn (Hamburger Only) -->
+      <div class="xl:hidden relative">
+        <button id="mobile-menu-button" class="text-white text-[30px]" aria-controls="mobile-menu"
+          aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Animated + Accordion) -->
+    <div id="mobile-menu"
+      class="xxl:hidden fixed inset-y-0 right-0 w-full md:w-[400px] bg-[#4C46C7] text-white transform translate-x-full transition-transform duration-500 ease-in-out z-50 overflow-y-auto h-full"
+      aria-hidden="true">
+
+
+      <nav class="flex flex-col space-y-2 p-6 font-medium">
+        <!-- Close Button (X Icon) -->
+        <button id="mobile-menu-close" class="self-end text-white text-[30px] hidden" aria-label="Close menu">
+          ✕
+        </button>
+
+        <!-- Accordion: Who We Serve -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-who">
+          <span>Who We Serve</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-who" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./individualconsultantbilling.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Individual
+            Consultant Billing</a>
+          <a href="./group-administration.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Groups</a>
+          <a href="./hospitalclinicbilling.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Hospital/Clinical
+            Billing</a>
+        </div>
+
+        <!-- Accordion: What We Do -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-what">
+          <span>What We Do</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-what" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./billing-services.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Billing
+            Services</a>
+          <a href="./software.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Software</a>
+          <a href="./remote-practise.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Remote
+            Practice Management</a>
+        </div>
+
+        <!-- Accordion: About -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-about">
+          <span>About</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-about" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./about.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">About Us</a>
+          <a href="./news.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">News</a>
+          <a href="./reviews.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Reviews</a>
+          <a href="./careers.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Careers</a>
+          <a href="./contact-us.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Contact Us</a>
+        </div>
+
+        <a href="./contact-us.html" class="hover:text-gray-200 py-2">Contact Us</a>
+        <hr class="my-2 border-white/20 pt-2 pb-2">
+        <div class="flex items-center gap-4 py-2">
+          <a href="#"
+            class="px-4 py-2 border border-white rounded-full text-white hover:bg-white hover:text-[#343434] transition">Client
+            Login</a>
+          <a href="./onlineBillPayment.html"
+            class="px-4 py-2 bg-[#ECF2FD] text-[#343434] font-normal rounded-full hover:bg-[#d6e4fb] transition">Pay
+            Your Bill</a>
+        </div>
+      </nav>
+    </div>
+    <!-- Backdrop for mobile menu -->
+    <div id="mobile-menu-backdrop"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden xxl:hidden transition-opacity duration-500" aria-hidden="true">
+    </div>
+  </header>
+
+  <section class="px-6 md:px-20 py-12 max-w-7xl mx-auto space-y-20  mx-auto px-6 py-12 md:py-20 text-center">
+
+    <!-- Video + Text -->
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
+      <!-- Left: Video -->
+      <div class="relative w-full aspect-video max-w-[637px] mx-auto">
+        <video id="demoVideo" class="w-full h-full rounded-[22px] shadow-lg object-cover"
+          poster="./assets/images/video-poster.png">
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button id="playButton"
+          class="absolute inset-0 flex items-center justify-center text-white text-5xl bg-black/40 rounded-[22px]">
+          <!-- ▶ -->
+          <img src="assets/images/playIcon.png" alt="Play" class="w-12 h-12" />
+        </button>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="text-left">
+        <h2
+          class="font-catamaran font-semibold text-[36px] sm:text-[52px] leading-[120%] tracking-[0.57px] text-[#4C46C7]">
+          Practice Management Software
+        </h2>
+
+        <p class="font-catamaran font-semibold text-[24px] leading-[120%] tracking-[0.57px] text-[#343434] mt-4">
+          Our Cloud Based software enables Healthcare Professionals to run efficient,
+          secure and cost effective practices from any internet connected device.
+        </p>
+      </div>
+    </div>
+
+
+
+    <!-- Features -->
+    <div class="grid md:grid-cols-3 gap-16 text-center object-contain">
+      <div>
+        <img src="./assets/images/flexible.png" alt="Flexible terms"
+          class="mx-auto w-[65.72px] h-[78.87px] opacity-100 object-contain">
+        <h3
+          class="mt-4 font-catamaran font-semibold text-[28px] leading-[33.6px] tracking-[0.57px] text-center text-[#343434]">
+          Flexible terms
+        </h3>
+        <p class="font-catamaran font-normal text-[22px] leading-[26.4px] tracking-[0.57px] text-center text-[#B8BCC4]">
+          30-day rolling contract
+        </p>
+      </div>
+
+      <div>
+        <img src="./assets/images/smartphone.png" alt="Free Smartphone App"
+          class="mx-auto w-[65.72px] h-[78.87px] opacity-100 object-contain">
+        <h3
+          class="mt-4 font-catamaran font-semibold text-[28px] leading-[33.6px] tracking-[0.57px] text-center text-[#343434]">
+          Free Smartphone App
+        </h3>
+        <p class="font-catamaran font-normal text-[22px] leading-[26.4px] tracking-[0.57px] text-center text-[#B8BCC4]">
+          Upload and associate your patient notes in seconds
+        </p>
+      </div>
+
+      <div>
+        <img src="./assets/images/clock.png" alt="24/7"
+          class="mx-auto w-[65.72px] h-[78.87px] opacity-100 object-contain">
+        <h3
+          class="mt-4 font-catamaran font-semibold text-[28px] leading-[33.6px] tracking-[0.57px] text-center text-[#343434]">
+          24/7
+        </h3>
+        <p class="font-catamaran font-normal text-[22px] leading-[26.4px] tracking-[0.57px] text-center text-[#B8BCC4]">
+          Online access to Financial Information
+        </p>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+      <button onclick="window.location.href=''"
+        class="bg-indigo-700 text-white rounded-[100px] px-[52.18px] py-[28.7px] font-medium hover:bg-indigo-800 w-auto">
+        Speak to an expert
+      </button>
+
+      <button onclick="window.location.href=''"
+        class="bg-indigo-700 text-white rounded-[100px] px-[52.18px] py-[28.7px] font-medium hover:bg-indigo-800 w-auto">
+        Book a demo
+      </button>
+    </div>
+
+
+
+
+  </section>
+  <div class="bg-[#F4FBFF]">
+
+
+    <section class="max-w-7xl mx-auto px-6 py-12 md:py-20 text-center">
+      <!-- Heading -->
+      <h2 class="heading text-2xl sm:text-3xl md:text-4xl lg:text-[52px] leading-tight md:leading-[120%]">
+        Here’s How We Can Help <br class="hidden sm:block"> Streamline Your Practice
+      </h2>
+
+      <!-- Features Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-10 md:mt-16 text-left">
+        <!-- Card 1 -->
+        <div>
+          <h3 class="font-[Catamaran] font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7]">
+            Diary Management
+          </h3>
+
+          <p class="font-[Catamaran] font-normal text-[14px] leading-[19.46px] tracking-[0] text-[#343434] mt-3">
+            Our team will organise your clinic diary, ensuring that you get the most from your time while also helping
+            you to provide the best service possible to your patients.
+          </p>
+
+        </div>
+
+        <!-- Card 2 -->
+        <div>
+          <h3 class="font-[Catamaran] font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7]">
+            Cloud-Based Software</h3>
+          <p class="font-[Catamaran] font-normal text-[14px] leading-[19.46px] tracking-[0] text-[#343434] mt-3">
+            Our team will organise your clinic diary, ensuring that you get the most from your time while also helping
+            you to provide the best service possible to your patients.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div>
+          <h3 class="font-[Catamaran] font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7]">
+            Telephone & Email Support</h3>
+          <p class="font-[Catamaran] font-normal text-[14px] leading-[19.46px] tracking-[0] text-[#343434] mt-3">
+            Our team will organise your clinic diary, ensuring that you get the most from your time while also helping
+            you to provide the best service possible to your patients.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div>
+          <h3 class="font-[Catamaran] font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7]">Direct
+            Technical Support</h3>
+          <p class="font-[Catamaran] font-normal text-[14px] leading-[19.46px] tracking-[0] text-[#343434] mt-3">
+            Our team will organise your clinic diary, ensuring that you get the most from your time while also helping
+            you to provide the best service possible to your patients.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div>
+          <h3 class="font-[Catamaran] font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7]">Text
+            Reminders to Patients</h3>
+          <p class="font-[Catamaran] font-normal text-[14px] leading-[19.46px] tracking-[0] text-[#343434] mt-3">
+            Our team will organise your clinic diary, ensuring that you get the most from your time while also helping
+            you to provide the best service possible to your patients.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div>
+          <h3 class="font-[Catamaran] font-semibold text-[28px] leading-[120%] tracking-[0.57px] text-[#4C46C7]">Online
+            Prescriptions</h3>
+          <p class="font-[Catamaran] font-normal text-[14px] leading-[19.46px] tracking-[0] text-[#343434] mt-3">
+            Our team will organise your clinic diary, ensuring that you get the most from your time while also helping
+            you to provide the best service possible to your patients.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- With Medserv You Get Section -->
+    <section class="max-w-7xl mx-auto px-6 py-16 text-center">
+      <h2 class="text-[#343434] text-center mb-10"
+        style="font-family: Catamaran; font-weight:600; font-size:52px; line-height:120%; letter-spacing:0.57px;">
+        With Medserv You Get
+      </h2>
+
+      <!-- Feature Box -->
+      <div class="bg-white shadow-sm rounded-2xl p-8 md:p-12">
+        <!-- ✅ Adjusted spacing -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-16 text-left">
+
+          <!-- Feature 1 -->
+          <div class="flex flex-col items-start">
+            <img src="./assets/images/medical-report.svg" alt="Digital Medical Records" class="mb-10">
+            <h3 class="mb-2"
+              style="font-family: Catamaran; font-weight: 600; font-size: 28px; line-height: 120%; letter-spacing: 0.57px; color: #343434;">
+              Digital Medical Records
+            </h3>
+            <p
+              style="font-family: Catamaran; font-weight: 400; font-size: 14px; line-height: 19.46px; letter-spacing: 0; color: #343434;">
+              All documents are processed and stored securely in our GDPR-compliant practice management system.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="flex flex-col items-start">
+            <img src="./assets/images/doctor.svg" alt="Task Communication" class="mb-10">
+            <h3 class="mb-2"
+              style="font-family: Catamaran; font-weight: 600; font-size: 28px; line-height: 120%; letter-spacing: 0.57px; color: #343434;">
+              Task Communication
+            </h3>
+            <p
+              style="font-family: Catamaran; font-weight: 400; font-size: 14px; line-height: 19.46px; letter-spacing: 0; color: #343434;">
+              Efficiently manage tasks and communication within your practice.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="flex flex-col items-start">
+            <img src="./assets/images/Layer_1.png" alt="Dictations" class="mb-10">
+            <h3 class="mb-2"
+              style="font-family: Catamaran; font-weight: 600; font-size: 28px; line-height: 120%; letter-spacing: 0.57px; color: #343434;">
+              Dictations
+            </h3>
+            <p
+              style="font-family: Catamaran; font-weight: 400; font-size: 14px; line-height: 19.46px; letter-spacing: 0; color: #343434;">
+              Experience quick and precise dictation services for all your transcriptions.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="flex flex-col items-start">
+            <img src="./assets/images/dollarIcon.png" alt="Online Payments" class="mb-10">
+            <h3 class="mb-2"
+              style="font-family: Catamaran; font-weight: 600; font-size: 28px; line-height: 120%; letter-spacing: 0.57px; color: #343434;">
+              Online Payments
+            </h3>
+            <p
+              style="font-family: Catamaran; font-weight: 400; font-size: 14px; line-height: 19.46px; letter-spacing: 0; color: #343434;">
+              Utilise our secure payment portal to collect payments directly from patients.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="flex flex-col items-start">
+            <img src="./assets/images/g511.png" alt="Payment Reports" class="mb-10">
+            <h3 class="mb-2"
+              style="font-family: Catamaran; font-weight: 600; font-size: 28px; line-height: 120%; letter-spacing: 0.57px; color: #343434;">
+              Payment Reports
+            </h3>
+            <p
+              style="font-family: Catamaran; font-weight: 400; font-size: 14px; line-height: 19.46px; letter-spacing: 0; color: #343434;">
+              Access comprehensive payment reports to keep track of your practice’s financial health.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="flex flex-col items-start">
+            <img src="./assets/images/cellPhone.png" alt="Uninterrupted Coverage" class="mb-10">
+            <h3 class="mb-2"
+              style="font-family: Catamaran; font-weight: 600; font-size: 28px; line-height: 120%; letter-spacing: 0.57px; color: #343434;">
+              Uninterrupted Coverage
+            </h3>
+            <p
+              style="font-family: Catamaran; font-weight: 400; font-size: 14px; line-height: 19.46px; letter-spacing: 0; color: #343434;">
+              No more worrying about sick or annual leave. Our team is always available.
+            </p>
+          </div>
+
+          <!-- Feature 7 -->
+          <div class="flex flex-col items-start">
+            <img src="./assets/images/calender.png" alt="Support Times" class="mb-10">
+            <h3 class="mb-2"
+              style="font-family: Catamaran; font-weight: 600; font-size: 28px; line-height: 120%; letter-spacing: 0.57px; color: #343434;">
+              Support Times
+            </h3>
+            <p
+              style="font-family: Catamaran; font-weight: 400; font-size: 14px; line-height: 19.46px; letter-spacing: 0; color: #343434;">
+              Telephone and email support are available Monday to Friday, from 08:00 to 17:00.
+            </p>
+          </div>
+
+          <!-- Feature 8 -->
+          <div class="flex flex-col items-start">
+            <img src="./assets/images/cloud.png" alt="Direct Team Access" class="mb-10">
+            <h3 class="mb-2"
+              style="font-family: Catamaran; font-weight: 600; font-size: 28px; line-height: 120%; letter-spacing: 0.57px; color: #343434;">
+              Direct Team Access
+            </h3>
+            <p
+              style="font-family: Catamaran; font-weight: 400; font-size: 14px; line-height: 19.46px; letter-spacing: 0; color: #343434;">
+              Communicate directly with our support team for quick and efficient service.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="relative w-full h-[380px] overflow-hidden bg-gradient-to-b from-[#F3F9FF] to-white">
+      <img src="assets/images/mobileImg.jpg" alt="Medserv App Phone"
+        class="absolute inset-0 w-full mx-auto my-auto h-[280px] object-cover object-center" />
+      <div class="absolute top-1/2 -translate-y-1/2  left-0 h-[280px] w-[40px] md:w-[42px] bg-[#4C46C7]"></div>
+      <div class="absolute top-1/2 left-8 md:left-10 -translate-y-1/2 
+        bg-[#F7FAFF] rounded-2xl 
+        shadow-[0_6px_16px_rgba(0,0,0,0.06),0_6px_16px_rgba(0,0,0,0.05)]
+        p-6 md:p-8 w-[320px] md:w-[500px] flex flex-col gap-6 z-10">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-catamaran font-bold text-[48px] leading-[72px] text-[#4C46C7]">
+              Download
+            </h3>
+            <p class="font-catamaran font-bold text-[48px] leading-[72px] text-[#4C46C7]">
+              The Medserv App
+            </p>
+          </div>
+
+          <div class="flex items-center justify-center">
+            <img src="assets/images/icon.png" alt="Icon" class="w-[140px] h-[140px] object-contain">
+          </div>
+        </div>
+        <div class="flex gap-4 md:gap-6">
+          <a href="#" aria-label="Download from Google Play">
+            <img src="assets/images/googlePlay.png" alt="Google Play" class="h-12 md:h-14 cursor-pointer">
+          </a>
+          <a href="#" aria-label="Download from App Store">
+            <img src="assets/images/appStore.png" alt="App Store" class="h-12 md:h-14 cursor-pointer">
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+
+  <!-- Learn More Section -->
+  <section class="flex flex-col md:flex-row items-center justify-center gap-6 px-4 text-center md:text-left py-20">
+    <p class="text-[#4C46C7] font-catamaran font-[500] text-[36px] md:text-[44px] leading-[50px] tracking-tight">
+      Looking to learn more about Medserv?
+    </p>
+    <button
+      class="bg-[#4C46C7] px-6 py-3 rounded-full shadow hover:bg-[#3932A6] transition text-white font-catamaran font-[500] text-[19px] leading-[33px]">
+      Connect with us
+    </button>
+  </section>
+  <footer class="bg-[#4C46C7] text-white">
+    <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 pt-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-16">
+        <a href="./homepage.html" class="flex justify-start md:justify-start">
+          <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[180px] h-[80px] object-contain">
+        </a>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">Who We Serve</h3>
+          <ul class="space-y-3">
+            <li><a href="./individualconsultantbilling.html" class="text-[#B8BCC4] hover:underline">Individual
+                Consultant Billing</a></li>
+            <li><a href="./group-administration.html" class="text-[#B8BCC4] hover:underline">Groups</a></li>
+            <li><a href="./hospitalclinicbilling.html" class="text-[#B8BCC4] hover:underline">Hospital/Clinical
+                Billing</a></li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">What We Do</h3>
+          <ul class="space-y-3">
+            <li><a href="./billing-services.html" class="text-[#B8BCC4] hover:underline">Billing Services</a></li>
+            <li><a href="./software.html" class="text-[#B8BCC4] hover:underline">Software</a></li>
+            <li><a href="./remote-practise.html" class="text-[#B8BCC4] hover:underline">Remote Practice Management</a>
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">About</h3>
+          <ul class="space-y-3">
+            <li><a href="./about.html" class="text-[#B8BCC4] hover:underline">About Us</a></li>
+            <li><a href="./news.html" class="text-[#B8BCC4] hover:underline">News</a></li>
+            <li><a href="./reviews.html" class="text-[#B8BCC4] hover:underline">Reviews</a></li>
+            <li><a href="./careers.html" class="text-[#B8BCC4] hover:underline">Careers</a></li>
+            <li><a href="./contact-us.html" class="text-[#B8BCC4] hover:underline">Contact Us</a></li>
+            <li><a href="./privacyPolicy.html" class="text-[#B8BCC4] hover:underline">Privacy Policy</a>
+            </li>
+            <li><a href="./legalNotice.html" class="text-[#B8BCC4] hover:underline">Legal Notice</a></li>
+            <li><a href="./faqs.html" class="text-[#B8BCC4] hover:underline">FAQs</a></li>
+            <li><a href="./onlineBillPayment.html" class="text-[#B8BCC4] hover:underline">Online Billing
+                Payment</a></li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">Get in Touch</h3>
+          <div class="flex space-x-3">
+            <!-- Facebook -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-[#3b5998]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15" fill="currentColor">
+                <path
+                  d="M7.90924 5.15357V3.27857C7.90946 3.15538 7.93254 3.03345 7.97714 2.91973C8.02174 2.80602 8.08699 2.70277 8.16917 2.61587C8.25135 2.52896 8.34884 2.46012 8.45607 2.41328C8.5633 2.36644 8.67818 2.34251 8.79412 2.34286H9.67563V0H7.91092C7.56345 -0.000117134 7.21938 0.0724976 6.89833 0.213697C6.57728 0.354896 6.28556 0.561913 6.03982 0.822924C5.79409 1.08393 5.59915 1.39382 5.46615 1.73489C5.33316 2.07596 5.26471 2.44153 5.26471 2.81071V5.15357H3.5V7.5H5.26471V15H7.91009V7.5H9.6748L10.5588 5.15357H7.90924Z" />
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-red-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 19 13" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M7.58902 8.90139V3.69042C9.48161 4.56089 10.9474 5.40178 12.681 6.30837C11.2512 7.08346 9.48161 7.95313 7.58902 8.90139ZM18.1365 1.09876C17.81 0.678343 17.2536 0.351082 16.6612 0.242737C14.92 -0.0804524 4.05744 -0.0813717 2.31719 0.242737C1.84215 0.329781 1.41914 0.54018 1.05577 0.867074C-0.475344 2.25612 0.00443287 9.70515 0.37349 10.9118C0.528682 11.4341 0.729306 11.8107 0.981967 12.058C1.30749 12.3849 1.75319 12.61 2.26514 12.7109C3.69878 13.0007 11.0846 13.1628 16.6309 12.7544C17.1419 12.6674 17.5942 12.435 17.951 12.0943C19.3666 10.7108 19.2701 2.84341 18.1365 1.09876Z" />
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15" fill="currentColor">
+                <path
+                  d="M0 1.89185V13.1082C0 14.1669 0.833133 15 1.89185 15H13.1082C13.6263 15 14.1215 14.7521 14.4371 14.4371C14.7751 14.0991 15 13.671 15 13.1082V1.89185C15 0.833133 14.1669 0 13.1082 0H1.89185C1.32898 0 0.900879 0.22558 0.562869 0.562869C0.247201 0.878538 0 1.37366 0 1.89185ZM2.02734 3.37794C2.02734 2.65723 2.61327 2.02662 3.33397 2.02662C4.07702 2.02662 4.68529 2.65723 4.68529 3.37794C4.68529 4.12098 4.07702 4.70691 3.33397 4.70691C2.61327 4.70691 2.02734 4.12098 2.02734 3.37794ZM5.6532 12.6347V5.76563C5.6532 5.60779 5.81103 5.47302 5.92346 5.47302H7.83765C8.10791 5.47302 8.10791 5.78869 8.10791 5.99121C8.64844 5.45068 9.3468 5.31519 10.0675 5.31519C11.8246 5.31519 12.9503 6.14832 12.9503 7.99548V12.6354C12.9503 12.7932 12.8148 12.928 12.6801 12.928H10.6981C10.5403 12.928 10.4279 12.7701 10.4279 12.6354V8.44592C10.4279 7.74756 10.2253 7.36487 9.43689 7.36487C8.44592 7.36487 8.198 8.01783 8.198 8.89636V12.6354C8.198 12.7932 8.04017 12.928 7.88233 12.928H5.92274C5.81031 12.928 5.65248 12.7701 5.65248 12.6354L5.6532 12.6347ZM2.07202 12.6347V5.76563C2.07202 5.60779 2.22986 5.47302 2.34229 5.47302H4.30188C4.48205 5.47302 4.59448 5.58545 4.59448 5.76563V12.6347C4.59448 12.7925 4.45899 12.9273 4.30188 12.9273H2.34229C2.20679 12.9273 2.07202 12.7694 2.07202 12.6347Z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-black">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 13 13" fill="currentColor">
+                <path
+                  d="M12.0669 11.6739L7.71098 5.48975L7.21853 4.79034L4.10258 0.366604L3.84443 0H0.015625L0.949434 1.32611L5.09242 7.20866L5.58488 7.90733L8.91367 12.6338L9.17194 13.0001H13.0007L12.0669 11.674V11.6739ZM9.62697 12.1536L6.16861 7.24331L5.67615 6.54433L1.66306 0.846354H3.38929L6.63469 5.45436L7.12715 6.15334L11.3532 12.1535H9.62697V12.1536Z" />
+                <path
+                  d="M5.67552 6.54297L6.16797 7.24195L5.58414 7.90597L1.10464 12.9987H0L5.09168 7.2073L5.67552 6.54297Z" />
+                <path
+                  d="M12.5378 0L7.70911 5.48975L7.12527 6.15334L6.63281 5.45436L7.21665 4.79034L10.4876 1.06987L11.4332 0H12.5378Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-300 pt-8 pb-8">
+        <p class="font-normal text-[#B8BCC4] text-sm text-center md:text-left">© 2025 Medserv</p>
+      </div>
+    </div>
+  </footer>
+  <script src="./assets/js/script.js"></script>
+  <script>
+    // Minimal inline init if you’re testing this as a standalone
+    (function () {
+      const video = document.getElementById("demoVideo");
+      const playBtn = document.getElementById("playButton");
+      if (!video || !playBtn) return;
+      playBtn.addEventListener("click", () => {
+        video.controls = true; video.play(); playBtn.style.display = "none";
+      });
+      video.addEventListener("play", () => { playBtn.style.display = "none"; video.controls = true; });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="bg-white min-h-screen font-[Catamaran]">
+  <header class="bg-[#4C46C7] relative">
+    <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 py-16 flex items-center justify-between h-[100px]">
+      <a href="./homepage.html" class="flex-shrink-0 cursor-pointer">
+        <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[160px] h-[65px] object-contain"
+          style="cursor: pointer;">
+      </a>
+      <div class="flex items-center space-x-10">
+        <nav class="hidden xl:flex items-center space-x-8 text-white font-normal tracking-[0.57px]">
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              Who We Serve
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li><a href="./individualconsultantbilling.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Individual
+                    Consultant Billing</a></li>
+                <li><a href="./group-administration.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Groups</a></li>
+                <li><a href="./hospitalclinicbilling.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Hospital/Clinical
+                    Billing</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              What We Do
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li>
+                  <a href="./billing-services.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                    Billing Services
+                  </a>
+                </li>
+                <li><a href="./software.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Software</a>
+                </li>
+                <li><a href="./remote-practise.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Remote
+                    Practice
+                    Management</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:opacity-80">
+              About
+              <img src="./assets/images/dropdown-arrow.png" alt="arrow" class="w-3 h-3">
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <ul class="py-2">
+                <li><a href="./about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">About
+                    Us</a>
+                </li>
+                <li><a href="./news.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">News</a></li>
+                <li><a href="./reviews.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Reviews</a></li>
+                <li><a href="./careers.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Careers</a></li>
+                <li><a href="./contact-us.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="./contact-us.html" class="hover:opacity-80">Contact Us</a>
+        </nav>
+        <div class="hidden xl:flex items-center space-x-4">
+          <a href="#"
+            class="px-6 py-2 border border-white rounded-full text-white hover:bg-white hover:text-[#343434] transition tracking-[0.57px]">
+            Client Login
+          </a>
+          <a href="./onlineBillPayment.html"
+            class="px-6 py-2 bg-[#ECF2FD] text-[#343434] font-normal rounded-full hover:bg-[#d6e4fb] transition tracking-[0.57px]">
+            Pay Your Bill
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Btn (Hamburger Only) -->
+      <div class="xl:hidden relative">
+        <button id="mobile-menu-button" class="text-white text-[30px]" aria-controls="mobile-menu"
+          aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (Animated + Accordion) -->
+    <div id="mobile-menu"
+      class="xxl:hidden fixed inset-y-0 right-0 w-full md:w-[400px] bg-[#4C46C7] text-white transform translate-x-full transition-transform duration-500 ease-in-out z-50 overflow-y-auto h-full"
+      aria-hidden="true">
+
+      <nav class="flex flex-col space-y-2 p-6 font-medium">
+        <!-- Close Button (X Icon) -->
+        <button id="mobile-menu-close" class="self-end text-white text-[30px] hidden" aria-label="Close menu">
+          ✕
+        </button>
+
+        <!-- Accordion: Who We Serve -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-who">
+          <span>Who We Serve</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-who" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./individualconsultantbilling.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Individual
+            Consultant Billing</a>
+          <a href="./group-administration.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Groups</a>
+          <a href="./hospitalclinicbilling.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Hospital/Clinical
+            Billing</a>
+        </div>
+
+        <!-- Accordion: What We Do -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-what">
+          <span>What We Do</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-what" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./billing-services.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Billing
+            Services</a>
+          <a href="./software.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Software</a>
+          <a href="./remote-practise.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Remote
+            Practice Management</a>
+        </div>
+
+        <!-- Accordion: About -->
+        <button class="flex items-center justify-between w-full py-2 text-left" data-accordion-button
+          data-target="m-about">
+          <span>About</span>
+          <img src="./assets/images/dropdown-arrow.png" class="w-3 h-3 transition-transform duration-300" data-arrow>
+        </button>
+        <div id="m-about" class="ml-4 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+          <a href="./about.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">About Us</a>
+          <a href="./news.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">News</a>
+          <a href="./reviews.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Reviews</a>
+          <a href="./careers.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Careers</a>
+          <a href="./contact-us.html" class="block py-1 hover:text-gray-200 text-[#B8BCC4]">Contact Us</a>
+        </div>
+
+        <a href="./contact-us.html" class="hover:text-gray-200 py-2">Contact Us</a>
+        <hr class="my-2 border-white/20 pt-2 pb-2">
+        <div class="flex items-center gap-4 py-2">
+          <a href="#"
+            class="px-4 py-2 border border-white rounded-full text-white hover:bg-white hover:text-[#343434] transition">Client
+            Login</a>
+          <a href="./onlineBillPayment.html"
+            class="px-4 py-2 bg-[#ECF2FD] text-[#343434] font-normal rounded-full hover:bg-[#d6e4fb] transition">Pay
+            Your Bill</a>
+        </div>
+      </nav>
+    </div>
+    <!-- Backdrop for mobile menu -->
+    <div id="mobile-menu-backdrop"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden xxl:hidden transition-opacity duration-500" aria-hidden="true">
+    </div>
+  </header>
+  <div class="text-center px-4 mt-16">
+
+    <!-- Heading -->
+    <h1
+      class="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[47.9px] leading-tight md:leading-[52.69px] text-[#4D44CC] mb-8">
+      Making Your Life Easier Every Day
+    </h1>
+
+    <!-- Single Image -->
+    <img src="./assets/images/medserv.png" alt="Medserv"
+      class="mx-auto max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl w-full" />
+
+    <!-- Button -->
+    <div class="mt-10 sm:mt-16 md:mt-20 flex justify-center">
+      <a href="#"
+        class="px-6 md:px-8 py-3 md:py-4 rounded-md bg-[#5D38BB] opacity-100 flex items-center justify-center text-white font-bold text-sm sm:text-base md:text-lg leading-normal">
+        Connect with us
+      </a>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- Top 2 columns -->
+  <div class="mt-20 border-t-[0.83px] border-b-[0.83px] border-l-0 border-r-0 border-solid border-[#4D44CC]">
+    <div
+      class="grid grid-cols-1 md:grid-cols-[45%_55%] mx-[8%] lg:mx-[14%] border-l-[0.83px] border-r-[0.83px] border-solid border-[#4D44CC]">
+      <div class="p-6 py-12 border-b md:border-b-0 md:border-r border-[#4D44CC]">
+        <h3 class="font-semibold text-[23.95px] leading-[35.92px] align-middle text-[#4D44CC] mb-8">Founded in 2005</h3>
+        <p class="font-normal text-[17.96px] leading-[26.94px] align-middle text-[#4D44CC]">
+          Medserv is an Irish company that was established by Cormac Loughrey in 2005 and has rapidly grown
+          to become one of the largest companies specialising in medical billing in Europe.
+        </p>
+      </div>
+      <div class="p-6 py-12">
+        <h3 class="font-semibold text-[23.95px] leading-[35.92px] align-middle text-[#4D44CC] mb-8">Our Clients</h3>
+        <p class="font-normal text-[17.96px] leading-[26.94px] align-middle text-[#4D44CC]">
+          Our clients include hospital consultants of all specialties, GPs, clinics as well as hospitals.
+          We have clients in all major hospitals throughout Ireland and the UK and links with all main
+          health insurers as well as the HSE and NHS.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="mx-[8%] lg:mx-[14%] py-12">
+    <!-- GDPR row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
+      <!-- Laptop image -->
+      <div class="flex justify-center">
+        <img src="./assets/images/laptop.png" alt="Medserv Laptop" class="max-w-full md:max-w-md">
+      </div>
+
+      <!-- GDPR text -->
+      <div>
+        <h3 class="font-semibold text-[23.95px] leading-[35.92px] align-middle text-[#4D44CC] mb-4">GDPR</h3>
+        <p class="font-normal text-[17.96px] leading-[26.94px] align-middle text-[#4D44CC] mb-4">
+          Given the sensitive nature of the information we process we have to be sure that we have all the
+          necessary processes and checks in place when it comes to Data Protection and GDPR compliance.
+        </p>
+        <p class="font-normal text-[17.96px] leading-[26.94px] align-middle text-[#4D44CC] mb-6">
+          We have been audited by the Data Protection Commission in Ireland and are voluntarily audited to test
+          the robustness of our IT security systems. Protecting the sensitive information we receive is a
+          primary focus for us at all times.
+        </p>
+
+        <!-- Learn more styled button -->
+        <a href="#"
+          class="inline-flex items-center py-2 font-semibold text-[17.96px] leading-[26.94px] align-middle text-[#4D44CC] transition border-b-[1.5px] border-solid border-[#4D44CC]">
+          <span class="pr-12">Learn more</span>
+          <svg width="31" height="39" viewBox="0 0 31 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M30.277 10.7919C30.3417 10.4248 30.0918 10.0739 29.7188 10.0082L23.6402 8.93648C23.2671 8.87071 22.9123 9.11499 22.8476 9.48208C22.7828 9.84917 23.0328 10.2001 23.4058 10.2658L28.809 11.2184L27.8716 16.5359C27.8069 16.9029 28.0568 17.2539 28.4298 17.3196C28.8028 17.3854 29.1576 17.1411 29.2224 16.774L30.277 10.7919ZM1.97401 30.517L29.9963 11.227L29.2069 10.1186L1.18457 29.4086L1.97401 30.517Z"
+              fill="#4D44CC" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Systems row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
+      <!-- Systems text -->
+      <div class="order-2 md:order-1">
+        <h3 class="font-semibold text-[23.95px] leading-[35.92px] align-middle text-[#4D44CC] mb-4">Systems</h3>
+        <p class="font-normal text-[17.96px] leading-[26.94px] align-middle text-[#4D44CC] mb-6">
+          At Medserv we’re very proud of our in-house IT capabilities and custom built systems. We leverage
+          these capabilities to maximise efficiency in all aspects of our business – and yours. This includes
+          electronic links with hospitals and insurers.
+        </p>
+        <h4 class="font-bold text-[23.95px] leading-[35.92px] align-middle text-[#4D44CC] mb-3">Download The Medserv App
+        </h4>
+        <div class="flex space-x-4">
+          <img src="./assets/images/playstore.png" alt="Google Play" class="h-12">
+          <img src="./assets/images/appstore.png" alt="App Store" class="h-12">
+        </div>
+      </div>
+
+      <!-- Phone image -->
+      <div class="flex justify-center order-1 md:order-2">
+        <img class="max-h-[370px]" src="./assets/images/mobile.png" alt="Medserv App" class="max-w-full md:max-w-xs">
+      </div>
+    </div>
+
+  </section>
+
+  <section class="relative bg-cover bg-center lg:h-[590px]" style="background-image: url('./assets/images/hall.jpg');">
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-[#DFE4FFF0]/90"></div>
+
+    <!-- Content -->
+    <div class="relative mx-[8%] lg:mx-[14%] h-full py-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+      <!-- Left text -->
+      <div class="space-y-6 pr-[20%]">
+        <div class="flex items-start gap-3">
+          <svg class="mt-4" width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+          <p class="font-semibold text-2xl md:text-[35.92px] leading-tight md:leading-[53.89px] text-[#4D44CC]">
+            <span class="font-semibold text-2xl md:text-[35.92px] leading-tight md:leading-[53.89px] text-[#B500BA]">4
+              Offices</span> in the UK, Ireland and Poland
+          </p>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <svg class="mt-4" width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+          <p class="font-semibold text-2xl md:text-[35.92px] leading-tight md:leading-[53.89px] text-[#4D44CC]">
+            <span
+              class="font-semibold text-2xl md:text-[35.92px] leading-tight md:leading-[53.89px] text-[#B500BA]">5000+
+            </span>Providers
+          </p>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <svg class="mt-4" width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+          <p class="font-semibold text-2xl md:text-[35.92px] leading-tight md:leading-[53.89px] text-[#4D44CC]">
+            <span class="font-semibold text-2xl md:text-[35.92px] leading-tight md:leading-[53.89px] text-[#B500BA]">99%
+            </span>Client Satisfaction
+          </p>
+        </div>
+      </div>
+
+      <!-- Right image -->
+      <div class="flex justify-center">
+        <img src="./assets/images/map.png" alt="Map with offices" class="w-full">
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="mx-[8%] lg:mx-[14%] py-12">
+
+    <!-- Title + Description -->
+    <div class="mb-10">
+      <div>
+        <h2 class="font-bold text-[35.92px] leading-[46.7px] text-[#4D44CC] mb-4">The Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[12%]">
+          <p class="font-normal text-[17.96px] leading-[26.94px] text-[#4D44CC]">
+            As our company has grown, so too has our team. We have assembled a dynamic group from differing
+            backgrounds such as insurance, customer service, accounting and medicine, all of whom bring
+            different strengths to the table.
+          </p>
+          <p class="font-normal text-[17.96px] leading-[26.94px] text-[#4D44CC]">
+            Our in-house training programme ensures the continuous professional development of all staff
+            members, keeping the team up to date with new technology and new procedures at all times.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Images Row -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mb-12">
+      <img src="./assets/images/team.png" alt="Team" class="w-full h-[224px] object-cover">
+      <img src="./assets/images/hall.jpg" alt="Office" class="w-full h-[224px] object-cover">
+      <img src="./assets/images/team1.png" alt="Work" class="w-full h-[224px] object-cover">
+    </div>
+
+    <!-- Word Cloud -->
+    <div>
+      <span
+        class="pr-[70px] font-bold text-[32px] leading-[38px] sm:text-[42px] sm:leading-[48px] md:text-[52px] md:leading-[60px] lg:text-[60px] lg:leading-[68px] xl:text-[67.36px] xl:leading-[74.1px] text-[#4D44CC]">highly
+        trained team</span>
+      <span
+        class="pr-8 font-normal text-[14px] leading-[18px] sm:text-[16px] sm:leading-[20px] md:text-[18px] md:leading-[22px] lg:text-[20px] lg:leading-[24px] xl:text-[21.7px] xl:leading-[23.88px] text-[#4D44CC]">Always
+        innovating</span>
+      <span
+        class="pr-8 font-bold text-[14px] leading-[18px] sm:text-[16px] sm:leading-[20px] md:text-[18px] md:leading-[22px] lg:text-[20px] lg:leading-[24px] xl:text-[21.7px] xl:leading-[23.88px] text-[#4D44CC]">Being
+        trustworthy</span>
+      <span
+        class="pr-8 font-normal text-[14px] leading-[18px] sm:text-[16px] sm:leading-[20px] md:text-[18px] md:leading-[22px] lg:text-[20px] lg:leading-[24px] xl:text-[21.7px] xl:leading-[23.88px] text-[#4D44CC]">COLLABORATING</span>
+      <span
+        class="pr-8 font-normal text-[14px] leading-[18px] sm:text-[16px] sm:leading-[20px] md:text-[18px] md:leading-[22px] lg:text-[20px] lg:leading-[24px] xl:text-[21.7px] xl:leading-[23.88px] text-[#4D44CC]">POSITIVELY</span>
+      <span
+        class="pr-8 font-bold text-[14px] leading-[18px] sm:text-[16px] sm:leading-[20px] md:text-[18px] md:leading-[22px] lg:text-[20px] lg:leading-[24px] xl:text-[21.7px] xl:leading-[23.88px] text-[#4D44CC]">DELIVERING
+        RESULTS</span>
+      <span
+        class="pr-8 font-bold text-[32px] leading-[38px] sm:text-[42px] sm:leading-[48px] md:text-[52px] md:leading-[60px] lg:text-[60px] lg:leading-[68px] xl:text-[67.36px] xl:leading-[74.1px] text-[#4D44CC]">innovative
+        technology</span>
+      <span
+        class="pr-8 font-bold text-[32px] leading-[38px] sm:text-[42px] sm:leading-[48px] md:text-[52px] md:leading-[60px] lg:text-[60px] lg:leading-[68px] xl:text-[67.36px] xl:leading-[74.1px] text-[#B500BA]">Highest
+        levels of customer service.</span>
+    </div>
+
+  </section>
+
+
+  <section class="mx-[8%] lg:mx-[14%] py-12">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-20">
+
+      <!-- Team Card -->
+      <div class="group">
+        <img src="./assets/images/CormacLoughrey.png" alt="Cormac Loughrey" class="w-full object-cover">
+
+        <div class="mt-2 py-2 border-b-[1.5px] border-[#4D44CC] flex justify-between items-center pt-2">
+          <div>
+            <h3
+              class="font-bold text-[16px] sm:text-[18px] md:text-[20px] leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#4D44CC]">
+              Cormac Loughrey</h3>
+
+          </div>
+          <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+        </div>
+        <p
+          class="pt-2 font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[22px] sm:leading-[26px] md:leading-[28px] text-[#4D44CC]">
+          Managing Director</p>
+      </div>
+
+      <!-- Team Card -->
+      <div class="group">
+        <img src="./assets/images/LisaHogan.png" alt="Lisa Hogan" class="w-full object-cover">
+        <div class="mt-2 py-2 border-b-[1.5px] border-[#4D44CC] flex justify-between items-center pt-2">
+          <div>
+            <h3
+              class="font-bold text-[16px] sm:text-[18px] md:text-[20px] leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#4D44CC]">
+              Lisa Hogan</h3>
+          </div>
+          <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+        </div>
+        <p
+          class="pt-2 font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[22px] sm:leading-[26px] md:leading-[28px] text-[#4D44CC]">
+          Remote Practice Support Manager</p>
+      </div>
+
+      <!-- Team Card -->
+      <div class="group">
+        <img src="./assets/images/KevinBaker.png" alt="Kevin Baker" class="w-full object-cover">
+
+        <div class="mt-2 py-2 border-b-[1.5px] border-[#4D44CC] flex justify-between items-center pt-2">
+          <div>
+            <h3
+              class="font-bold text-[16px] sm:text-[18px] md:text-[20px] leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#4D44CC]">
+              Kevin Baker</h3>
+          </div>
+          <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+        </div>
+        <p
+          class="pt-2 font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[22px] sm:leading-[26px] md:leading-[28px] text-[#4D44CC]">
+          Head of Growth UK &amp; IRL</p>
+      </div>
+
+      <div class="group">
+        <img src="./assets/images/StephenHalpin.png" alt="Kevin Baker" class="w-full object-cover">
+
+        <div class="mt-2 py-2 border-b-[1.5px] border-[#4D44CC] flex justify-between items-center pt-2">
+          <div>
+            <h3
+              class="font-bold text-[16px] sm:text-[18px] md:text-[20px] leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#4D44CC]">
+              Stephen Halpin</h3>
+          </div>
+          <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+        </div>
+        <p
+          class="pt-2 font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[22px] sm:leading-[26px] md:leading-[28px] text-[#4D44CC]">
+          Cardiology, Respiratory and
+          Vascular Team Manager</p>
+      </div>
+
+      <div class="group">
+        <img src="./assets/images/TraceyBrereton.png" alt="Kevin Baker" class="w-full object-cover">
+
+        <div class="mt-2 py-2 border-b-[1.5px] border-[#4D44CC] flex justify-between items-center pt-2">
+          <div>
+            <h3
+              class="font-bold text-[16px] sm:text-[18px] md:text-[20px] leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#4D44CC]">
+              Tracey Brereton</h3>
+          </div>
+          <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+        </div>
+        <p
+          class="pt-2 font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[22px] sm:leading-[26px] md:leading-[28px] text-[#4D44CC]">
+          Client Experience Team Manager</p>
+      </div>
+
+      <div class="group">
+        <img src="./assets/images/CathalCraughwell.png" alt="Kevin Baker" class="w-full object-cover">
+
+        <div class="mt-2 py-2 border-b-[1.5px] border-[#4D44CC] flex justify-between items-center pt-2">
+          <div>
+            <h3
+              class="font-bold text-[16px] sm:text-[18px] md:text-[20px] leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#4D44CC]">
+              Cathal Craughwell</h3>
+          </div>
+          <svg width="34" height="25" viewBox="0 0 34 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M33.6753 2.09159C33.7481 1.67861 33.467 1.28385 33.0473 1.20987L26.2088 0.00422128C25.7891 -0.0697623 25.39 0.205049 25.3172 0.618023C25.2443 1.031 25.5255 1.42576 25.9451 1.49975L32.0238 2.57144L30.9692 8.55354C30.8964 8.9665 31.1775 9.36131 31.5971 9.43526C32.0167 9.50928 32.416 9.2344 32.4888 8.82144L33.6753 2.09159ZM1.83441 24.2823L33.3595 2.5811L32.4714 1.33416L0.946289 23.0353L1.83441 24.2823Z"
+              fill="#4D44CC" />
+          </svg>
+        </div>
+        <p
+          class="pt-2 font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[22px] sm:leading-[26px] md:leading-[28px] text-[#4D44CC]">
+          Surgical Team Manager</p>
+      </div>
+
+      <!-- Add other cards the same way... -->
+
+    </div>
+  </section>
+  <section class="bg-[#F4FBFF] w-full py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Title -->
+      <h2
+        class="font-[Onest] font-medium text-[36px] md:text-[57px] leading-[120%] md:leading-[63px] tracking-[-0.57px] text-center text-[#343434] mb-12">
+        News</h2>
+
+      <!-- Cards Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Card 1 -->
+        <div class="flex flex-col">
+          <img src="./assets/images/newssectionone.png.png" alt="Medserv App"
+            class="w-full h-48 md:h-56 object-cover rounded-[30px]">
+          <div class="p-6 flex flex-col flex-grow">
+            <p
+              class="font-[Catamaran] font-medium text-[14px] leading-[18px] tracking-[1px] uppercase text-[#031B4E] mb-2">
+              27 February 2025
+            </p>
+            <h3
+              class="font-[Catamaran] font-medium text-[20px] md:text-[24px] leading-[34px] tracking-[-0.28px] text-[#031B4E] mb-3">
+              Medserv App: The Ultimate Solution for Secure Patient Management &amp; Payments
+            </h3>
+            <p class="font-[Catamaran] font-normal text-[14px] leading-[26px] text-[#ACAFB2] mb-6 flex-grow">
+              Now available for both Android and iOS, the Medserv App revolutionizes patient information
+              management, payment processing, and claims handling–all within a single...
+            </p>
+            <a href="#"
+              class="font-[Catamaran] font-medium text-[16px] leading-[20.21px] tracking-[-0.16px] text-right text-[#343434] flex items-center justify-end">
+              <span class="hover:underline">Read More</span>
+              <span class="ml-2">→</span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex flex-col">
+          <img src="./assets/images/newssectiontwo.jpg" alt="Celebrating 5 Years"
+            class="w-full h-48 md:h-56 object-cover rounded-[30px]">
+          <div class="p-6 flex flex-col flex-grow">
+            <p
+              class="font-[Catamaran] font-medium text-[14px] leading-[18px] tracking-[1px] uppercase text-[#031B4E] mb-2">
+              24 February 2025</p>
+            <h3
+              class="font-[Catamaran] font-medium text-[20px] md:text-[24px] leading-[34px] tracking-[-0.28px] text-[#031B4E] mb-3">
+              Celebrating 5 Years of Success in Athlone!
+            </h3>
+            <p class="font-[Catamaran] font-normal text-[14px] leading-[26px] text-[#ACAFB2] mb-6 flex-grow">
+              Today marks a major milestone—five incredible years in Athlone! 🎉 It feels like just
+              yesterday we launched in September 2024, and what an exciting journey it has been! Looking
+              back on our growth...
+            </p>
+            <a href="#"
+              class="font-[Catamaran] font-medium text-[16px] leading-[20.21px] tracking-[-0.16px] text-right text-[#343434] flex items-center justify-end">
+              <span class="hover:underline">Read More</span>
+              <span class="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex flex-col">
+          <img src="./assets/images/newssectionthree.jpg" alt="Business Development"
+            class="w-full h-48 md:h-56 object-cover rounded-[30px]">
+          <div class="p-6 flex flex-col flex-grow">
+            <p
+              class="font-[Catamaran] font-medium text-[14px] leading-[18px] tracking-[1px] uppercase text-[#031B4E] mb-2">
+              20 February 2025</p>
+            <h3
+              class="font-[Catamaran] font-medium text-[20px] md:text-[24px] leading-[34px] tracking-[-0.28px] text-[#031B4E] mb-3">
+              Medserv Hits the Road: Meet Our Business
+              Development Team in Dublin &amp; Galway!</h3>
+            <p class="font-[Catamaran] font-normal text-[14px] leading-[26px] text-[#ACAFB2] mb-6 flex-grow">
+              Now available for both Android and iOS, the Medserv App revolutionizes patient information
+              management, payment processing, and claims handling–all within a single, secure platform...
+            </p>
+            <a href="#"
+              class="font-[Catamaran] font-medium text-[16px] leading-[20.21px] tracking-[-0.16px] text-right text-[#343434] flex items-center justify-end">
+              <span class="hover:underline">Read More</span>
+              <span class="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Learn More Section -->
+
+  <section class="flex flex-col md:flex-row items-center justify-center gap-6 px-4 text-center md:text-left py-20">
+    <p class="text-[#4C46C7] font-catamaran font-[500] text-[36px] md:text-[44px] leading-[50px] tracking-tight">
+      Looking to learn more about Medserv?
+    </p>
+    <button
+      class="bg-[#4C46C7] px-6 py-3 rounded-full shadow hover:bg-[#3932A6] transition text-white font-catamaran font-[500] text-[19px] leading-[33px]">
+      Connect with us
+    </button>
+  </section>
+  <footer class="bg-[#4C46C7] text-white">
+    <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 pt-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-16">
+        <a href="./homepage.html" class="flex justify-start md:justify-start">
+          <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[180px] h-[80px] object-contain">
+        </a>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">Who We Serve</h3>
+          <ul class="space-y-3">
+            <li><a href="./individualconsultantbilling.html" class="text-[#B8BCC4] hover:underline">Individual
+                Consultant Billing</a></li>
+            <li><a href="./group-administration.html" class="text-[#B8BCC4] hover:underline">Groups</a></li>
+            <li><a href="./hospitalclinicbilling.html" class="text-[#B8BCC4] hover:underline">Hospital/Clinical
+                Billing</a></li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">What We Do</h3>
+          <ul class="space-y-3">
+            <li><a href="./billing-services.html" class="text-[#B8BCC4] hover:underline">Billing Services</a></li>
+            <li><a href="./software.html" class="text-[#B8BCC4] hover:underline">Software</a></li>
+            <li><a href="./remote-practise.html" class="text-[#B8BCC4] hover:underline">Remote Practice Management</a>
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">About</h3>
+          <ul class="space-y-3">
+            <li><a href="./about.html" class="text-[#B8BCC4] hover:underline">About Us</a></li>
+            <li><a href="./news.html" class="text-[#B8BCC4] hover:underline">News</a></li>
+            <li><a href="./reviews.html" class="text-[#B8BCC4] hover:underline">Reviews</a></li>
+            <li><a href="./careers.html" class="text-[#B8BCC4] hover:underline">Careers</a></li>
+            <li><a href="./contact-us.html" class="text-[#B8BCC4] hover:underline">Contact Us</a></li>
+            <li><a href="./privacyPolicy.html" class="text-[#B8BCC4] hover:underline">Privacy Policy</a>
+            </li>
+            <li><a href="./legalNotice.html" class="text-[#B8BCC4] hover:underline">Legal Notice</a></li>
+            <li><a href="./faqs.html" class="text-[#B8BCC4] hover:underline">FAQs</a></li>
+            <li><a href="./onlineBillPayment.html" class="text-[#B8BCC4] hover:underline">Online Billing
+                Payment</a></li>
+          </ul>
+        </div>
+        <div class="space-y-5">
+          <h3 class="font-medium text-lg">Get in Touch</h3>
+          <div class="flex space-x-3">
+            <!-- Facebook -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-[#3b5998]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15" fill="currentColor">
+                <path
+                  d="M7.90924 5.15357V3.27857C7.90946 3.15538 7.93254 3.03345 7.97714 2.91973C8.02174 2.80602 8.08699 2.70277 8.16917 2.61587C8.25135 2.52896 8.34884 2.46012 8.45607 2.41328C8.5633 2.36644 8.67818 2.34251 8.79412 2.34286H9.67563V0H7.91092C7.56345 -0.000117134 7.21938 0.0724976 6.89833 0.213697C6.57728 0.354896 6.28556 0.561913 6.03982 0.822924C5.79409 1.08393 5.59915 1.39382 5.46615 1.73489C5.33316 2.07596 5.26471 2.44153 5.26471 2.81071V5.15357H3.5V7.5H5.26471V15H7.91009V7.5H9.6748L10.5588 5.15357H7.90924Z" />
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-red-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 19 13" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M7.58902 8.90139V3.69042C9.48161 4.56089 10.9474 5.40178 12.681 6.30837C11.2512 7.08346 9.48161 7.95313 7.58902 8.90139ZM18.1365 1.09876C17.81 0.678343 17.2536 0.351082 16.6612 0.242737C14.92 -0.0804524 4.05744 -0.0813717 2.31719 0.242737C1.84215 0.329781 1.41914 0.54018 1.05577 0.867074C-0.475344 2.25612 0.00443287 9.70515 0.37349 10.9118C0.528682 11.4341 0.729306 11.8107 0.981967 12.058C1.30749 12.3849 1.75319 12.61 2.26514 12.7109C3.69878 13.0007 11.0846 13.1628 16.6309 12.7544C17.1419 12.6674 17.5942 12.435 17.951 12.0943C19.3666 10.7108 19.2701 2.84341 18.1365 1.09876Z" />
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-blue-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 15 15" fill="currentColor">
+                <path
+                  d="M0 1.89185V13.1082C0 14.1669 0.833133 15 1.89185 15H13.1082C13.6263 15 14.1215 14.7521 14.4371 14.4371C14.7751 14.0991 15 13.671 15 13.1082V1.89185C15 0.833133 14.1669 0 13.1082 0H1.89185C1.32898 0 0.900879 0.22558 0.562869 0.562869C0.247201 0.878538 0 1.37366 0 1.89185ZM2.02734 3.37794C2.02734 2.65723 2.61327 2.02662 3.33397 2.02662C4.07702 2.02662 4.68529 2.65723 4.68529 3.37794C4.68529 4.12098 4.07702 4.70691 3.33397 4.70691C2.61327 4.70691 2.02734 4.12098 2.02734 3.37794ZM5.6532 12.6347V5.76563C5.6532 5.60779 5.81103 5.47302 5.92346 5.47302H7.83765C8.10791 5.47302 8.10791 5.78869 8.10791 5.99121C8.64844 5.45068 9.3468 5.31519 10.0675 5.31519C11.8246 5.31519 12.9503 6.14832 12.9503 7.99548V12.6354C12.9503 12.7932 12.8148 12.928 12.6801 12.928H10.6981C10.5403 12.928 10.4279 12.7701 10.4279 12.6354V8.44592C10.4279 7.74756 10.2253 7.36487 9.43689 7.36487C8.44592 7.36487 8.198 8.01783 8.198 8.89636V12.6354C8.198 12.7932 8.04017 12.928 7.88233 12.928H5.92274C5.81031 12.928 5.65248 12.7701 5.65248 12.6354L5.6532 12.6347ZM2.07202 12.6347V5.76563C2.07202 5.60779 2.22986 5.47302 2.34229 5.47302H4.30188C4.48205 5.47302 4.59448 5.58545 4.59448 5.76563V12.6347C4.59448 12.7925 4.45899 12.9273 4.30188 12.9273H2.34229C2.20679 12.9273 2.07202 12.7694 2.07202 12.6347Z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="#"
+              class="w-12 h-12 min-w-12 min-h-12 shrink-0 flex items-center justify-center rounded-full border border-white text-white transition hover:bg-white hover:text-black">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 13 13" fill="currentColor">
+                <path
+                  d="M12.0669 11.6739L7.71098 5.48975L7.21853 4.79034L4.10258 0.366604L3.84443 0H0.015625L0.949434 1.32611L5.09242 7.20866L5.58488 7.90733L8.91367 12.6338L9.17194 13.0001H13.0007L12.0669 11.674V11.6739ZM9.62697 12.1536L6.16861 7.24331L5.67615 6.54433L1.66306 0.846354H3.38929L6.63469 5.45436L7.12715 6.15334L11.3532 12.1535H9.62697V12.1536Z" />
+                <path
+                  d="M5.67552 6.54297L6.16797 7.24195L5.58414 7.90597L1.10464 12.9987H0L5.09168 7.2073L5.67552 6.54297Z" />
+                <path
+                  d="M12.5378 0L7.70911 5.48975L7.12527 6.15334L6.63281 5.45436L7.21665 4.79034L10.4876 1.06987L11.4332 0H12.5378Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-300 pt-8 pb-8">
+        <p class="font-normal text-[#B8BCC4] text-sm text-center md:text-left">© 2025 Medserv</p>
+      </div>
+    </div>
+  </footer>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
