@@ -1,0 +1,28 @@
+.map-container {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.logo-marquee-content {
+    display: inline-flex;
+    animation: scroll-left 25s linear infinite;
+}
+
+.logo-marquee-item {
+    flex: 0 0 auto;
+    margin-right: 4rem;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
