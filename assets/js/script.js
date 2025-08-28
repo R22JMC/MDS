@@ -79,8 +79,68 @@ function initVideoPlayer() {
     }
 }
 
+// Initialize testimonial carousel functionality
+function initTestimonialCarousel() {
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    const prevBtn = document.getElementById('prevTestimonial');
+    const nextBtn = document.getElementById('nextTestimonial');
+
+    if (!testimonials.length || !dots.length || !prevBtn || !nextBtn) return;
+
+    function showTestimonial(index) {
+        // Hide all testimonials
+        testimonials.forEach((testimonial, i) => {
+            if (i === index) {
+                testimonial.style.display = 'block';
+                testimonial.classList.add('active');
+            } else {
+                testimonial.style.display = 'none';
+                testimonial.classList.remove('active');
+            }
+        });
+
+        // Update dots
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.remove('bg-slate-300');
+                dot.classList.add('bg-[#4C46C7]');
+            } else {
+                dot.classList.remove('bg-[#4C46C7]');
+                dot.classList.add('bg-slate-300');
+            }
+        });
+
+        currentTestimonial = index;
+    }
+
+    function nextTestimonial() {
+        const next = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(next);
+    }
+
+    function prevTestimonial() {
+        const prev = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(prev);
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', nextTestimonial);
+    prevBtn.addEventListener('click', prevTestimonial);
+
+    // Dot navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showTestimonial(index));
+    });
+
+    // Auto-advance every 5 seconds
+    setInterval(nextTestimonial, 5000);
+}
+
 // Load all components when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
     initMobileMenu();
+    initTestimonialCarousel();
 });
  
