@@ -6,18 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Healthcare Admin UI</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link href="./assets/css/styles.css" rel="stylesheet">
+    <style>
+        .map-container {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+                /* Move half the total width since content is doubled */
+            }
+        }
+
+        .animate-marquee {
+            display: flex;
+            /* Use flex instead of inline-flex for better width control */
+            animation: marquee 30s linear infinite;
+            /* Adjust duration for smooth scrolling */
+            width: max-content;
+            /* Allow container to expand to content width */
+        }
+
+        .marquee-content {
+            flex-shrink: 0;
+            /* Prevent images from shrinking */
+            display: flex;
+            gap: 8px;
+            /* Default gap */
+        }
+
+        /* Ensure parent container doesn’t clip content */
+        .max-w-8xl {
+            overflow: hidden;
+            /* Ensure overflow is hidden */
+            width: 100%;
+            max-width: 1536px;
+            /* Match Tailwind's max-w-8xl */
+        }
+
+        /* Pause animation on hover for better UX */
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .marquee-content img {
+                height: 48px;
+                /* Smaller images on mobile */
+            }
+
+            .marquee-content {
+                gap: 6px;
+                /* Smaller gap on mobile */
+            }
+
+            .animate-marquee {
+                animation-duration: 30s;
+                /* Faster scroll on mobile */
+            }
+        }
+
+        @media (min-width: 640px) {
+            .marquee-content {
+                gap: 12px;
+                /* Medium gap for sm screens */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .marquee-content {
+                gap: 30px;
+                /* Larger gap for lg screens */
+            }
+        }
+    </style>
+
+
 </head>
 
-<body class="antialiased text-slate-700 bg-white">
+<body class="font-[Catamaran] text-slate-700 bg-white">
 
     <header class="bg-[#4C46C7] sticky top-0 z-50">
         <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 py-16 flex items-center justify-between h-[100px]">
-            <a href="./" class="flex-shrink-0 cursor-pointer">
+            <a href="/" class="flex-shrink-0 cursor-pointer">
                 <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[160px] h-[65px] object-contain"
                     style="cursor: pointer;">
             </a>
@@ -195,20 +279,13 @@
         <div
             class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <!-- Video Thumbnail -->
-            <div class="relative rounded-xl overflow-hidden shadow-md">
-                <!-- Video -->
-                <video id="demoVideo" class="w-full h-full aspect-video object-cover"
-                    poster="./assets/images/homepage-video-banner.jpg" preload="none">
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-                </video>
-
-                <!-- Play Button -->
-                <button id="playButton" class="absolute inset-0 flex items-center justify-center">
-                    <span
-                        class="w-16 h-16 flex items-center justify-center rounded-full bg-white/80 text-[#4C46C7] shadow-lg">
-                        ▶
-                    </span>
-                </button>
+            <div class="relative rounded-xl overflow-hidden shadow-md aspect-video">
+                <!-- YouTube Iframe -->
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/EW92JTCzeLM?si=0yPIzgGMlqjAgnjq"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
 
                 <!-- Gradient overlay (optional) -->
                 <div aria-hidden="true"
@@ -231,398 +308,400 @@
                     facility, our expert team and smart systems reduce overheads, increase revenue, and eliminate
                     paperwork headaches.
                 </p>
-                <a href="./contact-us.html" class="mt-8 inline-flex items-center justify-center gap-[3.28px]  w-[296.7px] h-[70.35px] rounded-[81.98px] bg-[#5400AD]  px-[40px] py-[22px] 
-                    font-catamaran font-medium text-[16px] leading-[27px] text-[#FFFEFE] opacity-100 hover:opacity-90">
+                <button onclick="window.location.href='./contact-us.html'"
+                    class="mt-8 inline-flex items-center justify-center gap-[3.28px]  w-[296.7px] h-[70.35px] rounded-[81.98px] bg-[#5400AD]  px-[40px] py-[22px] 
+                font-catamaran font-normal text-[22.23px] leading-[120%] tracking-[0.94px] text-[#FFFEFE] opacity-100 hover:opacity-90">
                     Speak to an expert
-                </a>
+                </button>
 
             </div>
         </div>
     </section>
 
     <!-- FEATURE BAR -->
-    <section class="bg-[#f3f6fd]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <!-- Feature -->
-            <div class="flex items-center justify-center gap-3">
-                <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                </span>
-                <span class="font-catamaran font-normal text-[18px] leading-[170%] tracking-[0.57px] text-[#343434]">
-                    Automated billing process
-                </span>
-            </div>
-
-            <!-- Feature -->
-            <div class="flex items-center justify-center gap-3">
-                <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                </span>
-                <span class="font-catamaran font-normal text-[18px] leading-[170%] tracking-[0.57px] text-[#343434]">
-                    Increased revenue
-                </span>
-            </div>
-
-            <!-- Feature -->
-            <div class="flex items-center justify-center gap-3">
-                <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                </span>
-                <span class="font-catamaran font-normal text-[18px] leading-[170%] tracking-[0.57px] text-[#343434]">
-                    More time for patient care
-                </span>
-            </div>
-
-            <!-- Feature -->
-            <div class="flex items-center justify-center gap-3">
-                <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                </span>
-                <span class="font-catamaran font-normal text-[18px] leading-[170%] tracking-[0.57px] text-[#343434]">
-                    Streamlined operations
-                </span>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- LOGO BAR -->
-    <section class="bg-white">
-        <div class="max-w-full mx-auto py-8">
-            <div class="logo-marquee">
-                <div class="logo-marquee-content">
-                    <!-- First set of logos -->
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/AXA_sqaure.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="AXA" />
+    <section class=" bg-[#f3f6fd] overflow-hidden">
+        <div class="max-w-8xl mx-auto py-8 px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex animate-marquee whitespace-nowrap">
+                <div class="flex gap-8 sm:gap-12 lg:gap-[30px] marquee-content">
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span
+                            class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                            Automated billing process
+                        </span>
                     </div>
 
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Aviva_square.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Aviva" />
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span
+                            class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                            Increased revenue
+                        </span>
                     </div>
 
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BMIHealthcare_rectangle.jpg"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="BMI Healthcare" />
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span
+                            class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                            More time for patient care
+                        </span>
                     </div>
 
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BUPA_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="BUPA" />
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span
+                            class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                            Streamlined operations
+                        </span>
+                    </div>
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span
+                            class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                            Automated billing process
+                        </span>
                     </div>
 
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BeaconHospital_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Beacon Hospital" />
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span
+                            class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                            Increased revenue
+                        </span>
                     </div>
 
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Beaumont_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Beaumont" />
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span
+                            class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                            More time for patient care
+                        </span>
                     </div>
 
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BlackrockClinic_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Blackrock Clinic" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BonSecours_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Bon Secours" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Bupa_square.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Bupa" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Cigna_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Cigna" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/CromwellHospital_square.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Cromwell Hospital" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/GARDA_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="GARDA" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/GalwayClinic_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Galway Clinic" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/HarleyStreetClinic_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Harley Street Clinic" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Healix_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Healix" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/LAYA_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="LAYA" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/LondonBridgeHospital_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="London Bridge Hospital" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/MaterPrivate_rectangle.jpg"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Mater Private" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/NuffieldHealth_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Nuffield Health" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Spire_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Spire" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/TheLondonClinic_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="The London Clinic" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/ThePrincessGraceHospital_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="The Princess Grace Hospital" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/UPMC_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="UPMC" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/VHI_square.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="VHI" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/WPA_rectangle.jpg"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="WPA" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/irish-life-health.svg"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Irish Life Health" />
-                    </div>
-
-                    <!-- Duplicate set for seamless loop -->
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/AXA_sqaure.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="AXA" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Aviva_square.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Aviva" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BMIHealthcare_rectangle.jpg"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="BMI Healthcare" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BUPA_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="BUPA" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BeaconHospital_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Beacon Hospital" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Beaumont_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Beaumont" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BlackrockClinic_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Blackrock Clinic" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/BonSecours_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Bon Secours" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Bupa_square.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Bupa" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Cigna_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Cigna" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/CromwellHospital_square.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Cromwell Hospital" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/GARDA_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="GARDA" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/GalwayClinic_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Galway Clinic" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/HarleyStreetClinic_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Harley Street Clinic" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Healix_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Healix" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/LAYA_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="LAYA" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/LondonBridgeHospital_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="London Bridge Hospital" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/MaterPrivate_rectangle.jpg"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Mater Private" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/NuffieldHealth_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Nuffield Health" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/Spire_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Spire" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/TheLondonClinic_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="The London Clinic" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/ThePrincessGraceHospital_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="The Princess Grace Hospital" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/UPMC_rectangle.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="UPMC" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/VHI_square.png"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="VHI" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/WPA_rectangle.jpg"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="WPA" />
-                    </div>
-
-                    <div class="logo-marquee-item">
-                        <img src="./assets/images/logos/irish-life-health.svg"
-                            class="max-h-[80px] w-auto object-contain filter grayscale"
-                            alt="Irish Life Health" />
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <span
+                            class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                            Streamlined operations
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- <section class="overflow-hidden bg-[#f3f6fd]">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <div class="flex gap-6 px-8 py-10">
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Automated billing process
+                    </span>
+                </div>
 
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Increased revenue
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        More time for patient care
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Streamlined operations
+                    </span>
+                </div>
+            </div>
+            <div class="flex gap-6 px-8 py-10">
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Automated billing process
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Increased revenue
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        More time for patient care
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Streamlined operations
+                    </span>
+                </div>
+            </div>
+            <div class="flex gap-6 px-8 py-10">
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Automated billing process
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Increased revenue
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        More time for patient care
+                    </span>
+                </div>
+
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 flex items-center justify-center rounded-full bg-[#4C46C7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </span>
+                    <span
+                        class="font-catamaran font-normal text-[22px] leading-[170%] tracking-[0.57px] text-[#343434]">
+                        Streamlined operations
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- LOGO BAR -->
+    <section class="bg-white overflow-hidden">
+        <div class="max-w-8xl mx-auto py-8 px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex animate-marquee whitespace-nowrap">
+                <!-- Original and Duplicated Images in One Container -->
+                <div class="flex gap-8 sm:gap-12 lg:gap-[30px] marquee-content">
+                    <!-- Original Images -->
+                    <img src="./assets/images/Aviva_square.png" class="h-20 object-contain" alt="Aviva"
+                        loading="lazy" />
+                    <img src="./assets/images/AXA_sqaure.png" class="h-20 object-contain" alt="AXA" loading="lazy" />
+                    <img src="./assets/images/BeaconHospital_rectangle.png" class="h-20 object-contain" alt="Beacon"
+                        loading="lazy" />
+                    <img src="./assets/images/Beaumont_rectangle.png" class="h-20 object-contain" alt="Beaumont"
+                        loading="lazy" />
+                    <img src="./assets/images/BlackrockClinic_rectangle.png" class="h-20 object-contain" alt="Blackrock"
+                        loading="lazy" />
+                    <img src="./assets/images/BonSecours_rectangle.png" class="h-20 object-contain" alt="BonSecours"
+                        loading="lazy" />
+                    <img src="./assets/images/BUPA_rectangle.png" class="h-20 object-contain" alt="BUPA"
+                        loading="lazy" />
+                    <img src="./assets/images/Cigna_rectangle.png" class="h-20 object-contain" alt="Cigna"
+                        loading="lazy" />
+                    <img src="./assets/images/CromwellHospital_square.png" class="h-20 object-contain" alt="Cromwell"
+                        loading="lazy" />
+                    <img src="./assets/images/GalwayClinic_rectangle.png" class="h-20 object-contain" alt="Galway"
+                        loading="lazy" />
+                    <img src="./assets/images/GARDA_rectangle.png" class="h-20 object-contain" alt="GARDA"
+                        loading="lazy" />
+                    <img src="./assets/images/HarleyStreetClinic_rectangle.png" class="h-20 object-contain" alt="Harley"
+                        loading="lazy" />
+                    <img src="./assets/images/Healix_rectangle.png" class="h-20 object-contain" alt="Healix"
+                        loading="lazy" />
+                    <img src="./assets/images/irish-life-health.svg" class="h-20 object-contain" alt="Irish Life"
+                        loading="lazy" />
+                    <img src="./assets/images/LAYA_rectangle.png" class="h-20 object-contain" alt="LAYA"
+                        loading="lazy" />
+                    <img src="./assets/images/LondonBridgeHospital_rectangle.png" class="h-20 object-contain"
+                        alt="London Bridge" loading="lazy" />
+                    <img src="./assets/images/NuffieldHealth_rectangle.png" class="h-20 object-contain" alt="Nuffield"
+                        loading="lazy" />
+                    <img src="./assets/images/Spire_rectangle.png" class="h-20 object-contain" alt="Spire"
+                        loading="lazy" />
+                    <img src="./assets/images/TheLondonClinic_rectangle.png" class="h-20 object-contain"
+                        alt="London Clinic" loading="lazy" />
+                    <img src="./assets/images/ThePrincessGraceHospital_rectangle.png" class="h-20 object-contain"
+                        alt="Princess Grace" loading="lazy" />
+                    <img src="./assets/images/VHI_square.png" class="h-20 object-contain" alt="VHI" loading="lazy" />
+                    <img src="./assets/images/WPA_rectangle.jpg" class="h-20 object-contain" alt="WPA" loading="lazy" />
+                    <img src="./assets/images/BMIHealthcare_rectangle.jpg" class="h-20 object-contain" alt="BMI"
+                        loading="lazy" />
+                    <img src="./assets/images/MaterPrivate_rectangle.jpg" class="h-20 object-contain"
+                        alt="Mater Private" loading="lazy" />
+                    <img src="./assets/images/UPMC_rectangle.png" class="h-20 object-contain" alt="UPMC"
+                        loading="lazy" />
+                    <!-- Duplicated Images -->
+                    <img src="./assets/images/Aviva_square.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/AXA_sqaure.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/BeaconHospital_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/Beaumont_rectangle.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/BlackrockClinic_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/BonSecours_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/BUPA_rectangle.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/Cigna_rectangle.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/CromwellHospital_square.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/GalwayClinic_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/GARDA_rectangle.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/HarleyStreetClinic_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/Healix_rectangle.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/irish-life-health.svg" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/LAYA_rectangle.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/LondonBridgeHospital_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/NuffieldHealth_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/Spire_rectangle.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/TheLondonClinic_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/ThePrincessGraceHospital_rectangle.png" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/VHI_square.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/WPA_rectangle.jpg" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                    <img src="./assets/images/BMIHealthcare_rectangle.jpg" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/MaterPrivate_rectangle.jpg" class="h-20 object-contain" alt=""
+                        loading="lazy" aria-hidden="true" />
+                    <img src="./assets/images/UPMC_rectangle.png" class="h-20 object-contain" alt="" loading="lazy"
+                        aria-hidden="true" />
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- SERVICES CARDS -->
     <section class="bg-[#f3f6fd] py-12">
@@ -631,7 +710,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-6">
 
                 <!-- Active Card -->
-                <a href="onlineBillPayment.html" class="group w-full h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
+                <a href="./onlineBillPayment.html" class="group w-full max-w-[212px] h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
                     transition duration-300 hover:bg-[#4D45C7] hover:shadow-[0px_13px_13.8px_0px_#3B08704D]">
                     <h3 class="font-medium text-[23px] leading-[28px] tracking-[-0.23px] text-secondary 
                                transition-colors duration-300 group-hover:text-white">
@@ -644,7 +723,7 @@
                 </a>
 
                 <!-- Other Cards -->
-                <a href="individualconsultantbilling.html" class="group w-full h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
+                <a href="./individualconsultantbilling.html" class="group w-full max-w-[212px] h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
                     transition duration-300 hover:bg-[#4D45C7] hover:shadow-[0px_13px_13.8px_0px_#3B08704D]">
                     <h3 class="font-medium text-[23px] leading-[28px] tracking-[-0.23px] text-secondary 
                                transition-colors duration-300 group-hover:text-white">
@@ -656,7 +735,7 @@
                     </p>
                 </a>
 
-                <a href="hospitalclinicbilling.html" class="group w-full h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
+                <a href="./hospitalclinicbilling.html" class="group w-full max-w-[212px] h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
                     transition duration-300 hover:bg-[#4D45C7] hover:shadow-[0px_13px_13.8px_0px_#3B08704D]">
                     <h3 class="font-medium text-[23px] leading-[28px] tracking-[-0.23px] text-secondary 
                                transition-colors duration-300 group-hover:text-white">
@@ -668,7 +747,7 @@
                     </p>
                 </a>
 
-                <a href="group-administration.html" class="group w-full h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
+                <a href="./group-administration.html" class="group w-full max-w-[212px] h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
                     transition duration-300 hover:bg-[#4D45C7] hover:shadow-[0px_13px_13.8px_0px_#3B08704D]">
                     <h3 class="font-medium text-[23px] leading-[28px] tracking-[-0.23px] text-secondary 
                                transition-colors duration-300 group-hover:text-white">
@@ -680,7 +759,17 @@
                     </p>
                 </a>
 
-                
+                <!-- <div class="group w-full max-w-[212px] h-[280px] rounded-[30px] bg-white p-6 flex flex-col justify-between 
+                    transition duration-300 hover:bg-[#4D45C7] hover:shadow-[0px_13px_13.8px_0px_#3B08704D]">
+                    <h3 class="font-medium text-[23px] leading-[28px] tracking-[-0.23px] text-secondary 
+                               transition-colors duration-300 group-hover:text-white">
+                        Primary Care Practitioners
+                    </h3>
+                    <p class="mt-6 font-medium text-[16px] leading-[20.21px] tracking-[-0.16px] text-accent 
+                              transition-colors duration-300 group-hover:text-white">
+                        GP Services →
+                    </p>
+                </div> -->
             </div>
         </div>
     </section>
@@ -874,8 +963,8 @@
             </h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                <div
-                    class="bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
+                <a href="./hospitalclinicbilling.html"
+                    class="block bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
                     <img src="assets/images/Icon-9.png" class="w-[59px] h-[59px]" />
                     <div>
                         <h3 class="font-catamaran font-semibold text-[24px] leading-[120%] text-[#031B4E] mb-2">
@@ -886,15 +975,16 @@
                         </p>
                     </div>
                     <div class="border-b-2 border-[#4D44CC] w-full">
-                        <a href="hospitalclinicbilling.html"
+                        <div
                             class="flex items-center justify-between font-catamaran font-bold text-[22px] leading-[170%] tracking-[0.57px] text-[#4D44CC] pb-1">
                             <span>Learn more</span>
                             <span class="text-[30px] leading-[170%] align-middle">→</span>
-                        </a>
+                        </div>
                     </div>
-                </div>
+                </a>
 
-                <div
+
+                <a href="./individualconsultantbilling.html"
                     class="bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
                     <img src="assets/images/Icon-12.png" class="w-[59px] h-[59px]" />
                     <div>
@@ -906,15 +996,16 @@
                         </p>
                     </div>
                     <div class="border-b-2 border-[#4D44CC] w-full">
-                        <a href="individualconsultantbilling.html"
+                        <div
                             class="flex items-center justify-between font-catamaran font-bold text-[22px] leading-[170%] tracking-[0.57px] text-[#4D44CC] pb-1">
                             <span>Learn more</span>
                             <span class="text-[30px] leading-[170%] align-middle">→</span>
-                        </a>
+                        </div>
                     </div>
-                </div>
+                </a>
 
-                <div
+
+                <a href="./group-administration.html"
                     class="bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
                     <img src="assets/images/Icon-11.png" class="w-[59px] h-[59px]" />
                     <div>
@@ -926,13 +1017,33 @@
                         </p>
                     </div>
                     <div class="border-b-2 border-[#4D44CC] w-full">
-                        <a href="group-administration.html"
+                        <div
+                            class="flex items-center justify-between font-catamaran font-bold text-[22px] leading-[170%] tracking-[0.57px] text-[#4D44CC] pb-1">
+                            <span>Learn more</span>
+                            <span class="text-[30px] leading-[170%] align-middle">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- <div
+                    class="bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
+                    <img src="assets/images/Icon-13.png" class="w-[59px] h-[59px]" />
+                    <div>
+                        <h3 class="font-catamaran font-semibold text-[24px] leading-[120%] text-[#031B4E] mb-2">
+                            GPs/Primary Care
+                        </h3>
+                        <p class="font-catamaran font-normal text-[16px] leading-[170%] text-[#86898C]">
+                            Sed ut perspiciatis unde omnis iste natus ut perspic iatis unde omnis iste.
+                        </p>
+                    </div>
+                    <div class="border-b-2 border-[#4D44CC] w-full">
+                        <a href="#"
                             class="flex items-center justify-between font-catamaran font-bold text-[22px] leading-[170%] tracking-[0.57px] text-[#4D44CC] pb-1">
                             <span>Learn more</span>
                             <span class="text-[30px] leading-[170%] align-middle">→</span>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- Services We Provide -->
@@ -943,7 +1054,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
 
-                <div
+                <a href="./hospitalclinicbilling.html"
                     class="bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
                     <img src="assets/images/Icon-14.png" class="w-[59px] h-[59px]" />
                     <div>
@@ -955,15 +1066,15 @@
                         </p>
                     </div>
                     <div class="border-b-2 border-[#4D44CC] w-full">
-                        <a href="hospitalclinicbilling.html"
+                        <div
                             class="flex items-center justify-between font-catamaran font-bold text-[22px] leading-[170%] tracking-[0.57px] text-[#4D44CC] pb-1">
                             <span>Learn more</span>
                             <span class="text-[30px] leading-[170%] align-middle">→</span>
-                        </a>
+                        </div>
                     </div>
-                </div>
+                </a>
 
-                <div
+                <a href="./individualconsultantbilling.html"
                     class="bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
                     <img src="assets/images/Icon-15.png" class="w-[59px] h-[59px]" />
                     <div>
@@ -975,15 +1086,15 @@
                         </p>
                     </div>
                     <div class="border-b-2 border-[#4D44CC] w-full">
-                        <a href="individualconsultantbilling.html"
+                        <div
                             class="flex items-center justify-between font-catamaran font-bold text-[22px] leading-[170%] tracking-[0.57px] text-[#4D44CC] pb-1">
                             <span>Learn more</span>
                             <span class="text-[30px] leading-[170%] align-middle">→</span>
-                        </a>
+                        </div>
                     </div>
-                </div>
+                </a>
 
-                <div
+                <a href="./group-administration.html"
                     class="bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
                     <img src="assets/images/Icon-16.png" class="w-[59px] h-[59px]" />
                     <div>
@@ -995,13 +1106,33 @@
                         </p>
                     </div>
                     <div class="border-b-2 border-[#4D44CC] w-full">
-                        <a href="group-administration.html"
+                        <div
+                            class="flex items-center justify-between font-catamaran font-bold text-[22px] leading-[170%] tracking-[0.57px] text-[#4D44CC] pb-1">
+                            <span>Learn more</span>
+                            <span class="text-[30px] leading-[170%] align-middle">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- <div
+                    class="bg-white shadow rounded-xl p-6 hover:shadow-lg h-[351px] transition flex flex-col justify-between">
+                    <img src="assets/images/Icon-17.png" class="w-[59px] h-[59px]" />
+                    <div>
+                        <h3 class="font-catamaran font-semibold text-[24px] leading-[120%] text-[#031B4E] mb-2">
+                            GPServ
+                        </h3>
+                        <p class="font-catamaran font-normal text-[16px] leading-[170%] text-[#86898C]">
+                            Sed ut perspiciatis unde omnis iste natus ut perspic iatis unde omnis iste.
+                        </p>
+                    </div>
+                    <div class="border-b-2 border-[#4D44CC] w-full">
+                        <a href="#"
                             class="flex items-center justify-between font-catamaran font-bold text-[22px] leading-[170%] tracking-[0.57px] text-[#4D44CC] pb-1">
                             <span>Learn more</span>
                             <span class="text-[30px] leading-[170%] align-middle">→</span>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -1020,101 +1151,103 @@
     </section>
 
     <!-- Testimonial block: two-col -->
-    <div class="bg-[#f5fbff] min-h-[755px] rounded-[30px] flex items-center justify-center mx-auto px-6">
+    <div x-data="{ active: 0, total: 3 }" x-init="setInterval(() => { active = (active + 1) % total }, 3000)"
+        class="bg-[#f5fbff] min-h-[755px] rounded-[30px] flex items-center justify-center mx-auto px-6">
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-7xl w-full">
 
             <!-- Left: photo card -->
             <div class="w-full max-w-[516px] aspect-[516/455] rounded-[30px] overflow-hidden mx-auto">
-                <img src="./assets/images/two-person.png" alt="Doctor conversation" class="w-full h-full object-cover">
+                <template x-if="active === 0">
+                    <img src="./assets/images/two-person.png" alt="Doctor conversation"
+                        class="w-full h-full object-cover">
+                </template>
+                <template x-if="active === 1">
+                    <img src="./assets/images/newssectionthree.jpg" alt="Doctor conversation"
+                        class="w-full h-full object-cover">
+                </template>
+                <template x-if="active === 2">
+                    <img src="./assets/images/newssectiontwo.jpg" alt="Doctor conversation"
+                        class="w-full h-full object-cover">
+                </template>
             </div>
 
             <!-- Right: testimonial card -->
-            <div class="bg-white w-full max-w-[607px] rounded-[30px] p-8 shadow-lg flex flex-col justify-between h-full">
+            <div
+                class="bg-white w-full max-w-[607px] rounded-[30px] p-8 shadow-lg flex flex-col justify-between h-full">
 
-                <!-- Testimonial content container -->
-                <div id="testimonialContainer" class="flex-1">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-slide active" data-testimonial="0">
-                        <p class="font-catamaran font-medium text-xl md:text-2xl lg:text-[32px] leading-[150%] text-[#343434]">
-                            "Medserv has revolutionized our billing process. What used to take hours now takes minutes, and our revenue collection has improved by 30%. The team is incredibly professional and responsive."
-                        </p>
-                        <div class="mt-6 flex justify-between items-center">
+                <!-- Text content -->
+                <template x-if="active === 0">
+                    <p
+                        class="font-catamaran font-medium text-xl md:text-2xl lg:text-[32px] leading-[150%] text-[#343434]">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                        distribution of letters, as opposed to using 'Content here, content here', making it look like
+                        readable English.
+                    </p>
+                </template>
+                <template x-if="active === 1">
+                    <p
+                        class="font-catamaran font-medium text-xl md:text-2xl lg:text-[32px] leading-[150%] text-[#343434]">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip.
+                    </p>
+                </template>
+                <template x-if="active === 2">
+                    <p
+                        class="font-catamaran font-medium text-xl md:text-2xl lg:text-[32px] leading-[150%] text-[#343434]">
+                        Many desktop publishing packages and web page editors now use Lorem Ipsum as
+                        their default model text, and a search for 'lorem ipsum' will uncover many web sites still in
+                        their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
+                        purpose (injected humour and the like).
+                    </p>
+                </template>
+
+                <!-- Author -->
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <template x-if="active === 0">
                             <div>
-                                <div class="font-catamaran font-medium text-lg md:text-2xl text-[#031B4E]">
-                                    Dr. Sarah Mitchell
+                                <div class="font-catamaran font-medium text-lg md:text-2xl text-[#031B4E]">Steven Malaro
                                 </div>
-                                <div class="font-catamaran font-normal text-base md:text-xl text-[#ACAFB2]">
-                                    Consultant Cardiologist
+                                <div class="font-catamaran font-normal text-base md:text-xl text-[#ACAFB2]">GP</div>
+                            </div>
+                        </template>
+                        <template x-if="active === 1">
+                            <div>
+                                <div class="font-catamaran font-medium text-lg md:text-2xl text-[#031B4E]">Sarah Johnson
+                                </div>
+                                <div class="font-catamaran font-normal text-base md:text-xl text-[#ACAFB2]">Cardiologist
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-slide" data-testimonial="1" style="display: none;">
-                        <p class="font-catamaran font-medium text-xl md:text-2xl lg:text-[32px] leading-[150%] text-[#343434]">
-                            "The group administration features have streamlined our multi-practice operations. We can now manage billing across all our locations from one central system. Highly recommended!"
-                        </p>
-                        <div class="mt-6 flex justify-between items-center">
+                        </template>
+                        <template x-if="active === 2">
                             <div>
-                                <div class="font-catamaran font-medium text-lg md:text-2xl text-[#031B4E]">
-                                    Michael O'Connor
+                                <div class="font-catamaran font-medium text-lg md:text-2xl text-[#031B4E]">David Lee
                                 </div>
-                                <div class="font-catamaran font-normal text-base md:text-xl text-[#ACAFB2]">
-                                    Practice Manager
+                                <div class="font-catamaran font-normal text-base md:text-xl text-[#ACAFB2]">Pediatrician
                                 </div>
                             </div>
-                        </div>
+                        </template>
                     </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-slide" data-testimonial="2" style="display: none;">
-                        <p class="font-catamaran font-medium text-xl md:text-2xl lg:text-[32px] leading-[150%] text-[#343434]">
-                            "Outstanding service and support. Medserv handles all our hospital billing needs efficiently, allowing us to focus on patient care. The reporting features provide excellent insights."
-                        </p>
-                        <div class="mt-6 flex justify-between items-center">
-                            <div>
-                                <div class="font-catamaran font-medium text-lg md:text-2xl text-[#031B4E]">
-                                    Emma Thompson
-                                </div>
-                                <div class="font-catamaran font-normal text-base md:text-xl text-[#ACAFB2]">
-                                    Hospital Administrator
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation and pagination at bottom -->
-                <div class="flex items-center justify-between mt-6">
-                    <!-- Left arrow -->
-                    <button id="prevTestimonial" class="w-10 h-10 bg-[#4C46C7] text-white rounded-full flex items-center justify-center hover:bg-[#3D37A0] transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                    </button>
 
                     <!-- Dots / pagination -->
                     <div class="flex items-center gap-2">
-                        <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-[#4C46C7] transition-colors" data-testimonial="0"></button>
-                        <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-slate-300 transition-colors" data-testimonial="1"></button>
-                        <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-slate-300 transition-colors" data-testimonial="2"></button>
+                        <button @click="active = 0" :class="active===0 ? 'bg-[#4C46C7]' : 'bg-slate-300'"
+                            class="w-2.5 h-2.5 rounded-full"></button>
+                        <button @click="active = 1" :class="active===1 ? 'bg-[#4C46C7]' : 'bg-slate-300'"
+                            class="w-2.5 h-2.5 rounded-full"></button>
+                        <button @click="active = 2" :class="active===2 ? 'bg-[#4C46C7]' : 'bg-slate-300'"
+                            class="w-2.5 h-2.5 rounded-full"></button>
                     </div>
-
-                    <!-- Right arrow -->
-                    <button id="nextTestimonial" class="w-10 h-10 bg-[#4C46C7] text-white rounded-full flex items-center justify-center hover:bg-[#3D37A0] transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
                 </div>
 
             </div>
         </div>
     </div>
-
-
-    <section class="relative w-full h-[380px] overflow-hidden bg-gradient-to-b from-[#F3F9FF] to-white">
+    <!-- Download Section -->
+    <section class="relative w-full h-[380px] overflow-hidden bg-[#F3F9FF]">
         <!-- Background phone image -->
         <img src="./assets/images/mobileImg.jpg" alt="Medserv App Phone"
             class="absolute inset-0 w-full mx-auto my-auto h-[280px] object-cover object-center" />
@@ -1124,37 +1257,40 @@
         <!-- adjust w-[40px] / md:w-[42px] to match left-8 / md:left-10 spacing -->
 
         <!-- Floating Card -->
-        <div class="absolute top-1/2 left-8 md:left-10 -translate-y-1/2 
+        <div class="max-w-7xl mx-auto px-6 md:px-0 relative h-[380px]">
+            <div class="absolute top-1/2 md:left-10 -translate-y-1/2 
         bg-[#F7FAFF] rounded-2xl 
         shadow-[0_6px_16px_rgba(0,0,0,0.06),0_6px_16px_rgba(0,0,0,0.05)]
         p-6 md:p-8 w-[320px] md:w-[500px] flex flex-col gap-6 z-10">
 
-            <!-- Title + Icon -->
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="font-catamaran font-bold text-[48px] leading-[72px] text-[#4C46C7]">
-                        Download
-                    </h3>
-                    <p class="font-catamaran font-bold text-[48px] leading-[72px] text-[#4C46C7]">
-                        The Medserv App
-                    </p>
+                <!-- Title + Icon -->
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-catamaran font-bold text-[48px] leading-[72px] text-[#4C46C7]">
+                            Download
+                        </h3>
+                        <p class="font-catamaran font-bold text-[48px] leading-[72px] text-[#4C46C7]">
+                            The Medserv App
+                        </p>
+                    </div>
+
+                    <div class="flex items-center justify-center">
+                        <img src="./assets/images/icon.png" alt="Icon" class="w-[140px] h-[140px] object-contain">
+                    </div>
                 </div>
 
-                <div class="flex items-center justify-center">
-                    <img src="./assets/images/icon.png" alt="Icon" class="w-[140px] h-[140px] object-contain">
+                <!-- Store Buttons -->
+                <div class="flex gap-4 md:gap-6">
+                    <a href="#" aria-label="Download from Google Play">
+                        <img src="./assets/images/googlePlay.png" alt="Google Play" class="h-12 md:h-14 cursor-pointer">
+                    </a>
+                    <a href="#" aria-label="Download from App Store">
+                        <img src="./assets/images/appStore.png" alt="App Store" class="h-12 md:h-14 cursor-pointer">
+                    </a>
                 </div>
-            </div>
-
-            <!-- Store Buttons -->
-            <div class="flex gap-4 md:gap-6">
-                <a href="#" aria-label="Download from Google Play">
-                    <img src="./assets/images/googlePlay.png" alt="Google Play" class="h-12 md:h-14 cursor-pointer">
-                </a>
-                <a href="#" aria-label="Download from App Store">
-                    <img src="./assets/images/appStore.png" alt="App Store" class="h-12 md:h-14 cursor-pointer">
-                </a>
             </div>
         </div>
+
     </section>
 
 
@@ -1183,7 +1319,7 @@
                             Now available for both Android and iOS, the Medserv App revolutionizes patient information
                             management, payment processing, and claims handling–all within a single...
                         </p>
-                        <a href="./individualNewsPage.html"
+                        <a href="#"
                             class="font-[Catamaran] font-medium text-[16px] leading-[20.21px] tracking-[-0.16px] text-right text-[#343434] flex items-center justify-end">
                             <span class="hover:underline">Read More</span>
                             <span class="ml-2">→</span>
@@ -1208,7 +1344,7 @@
                             yesterday we launched in September 2024, and what an exciting journey it has been! Looking
                             back on our growth...
                         </p>
-                        <a href="./individualNewsPage.html"
+                        <a href="#"
                             class="font-[Catamaran] font-medium text-[16px] leading-[20.21px] tracking-[-0.16px] text-right text-[#343434] flex items-center justify-end">
                             <span class="hover:underline">Read More</span>
                             <span class="ml-2">→</span>
@@ -1232,7 +1368,7 @@
                             Now available for both Android and iOS, the Medserv App revolutionizes patient information
                             management, payment processing, and claims handling–all within a single, secure platform...
                         </p>
-                        <a href="./individualNewsPage.html"
+                        <a href="#"
                             class="font-[Catamaran] font-medium text-[16px] leading-[20.21px] tracking-[-0.16px] text-right text-[#343434] flex items-center justify-end">
                             <span class="hover:underline">Read More</span>
                             <span class="ml-2">→</span>
@@ -1247,7 +1383,7 @@
     <footer class="bg-[#4C46C7] text-white">
         <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 pt-10">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-16">
-                <a href="./index.html" class="flex justify-start md:justify-start">
+                <a href="/" class="flex justify-start md:justify-start">
                     <img src="./assets/images/medserv-logo.png" alt="Medserv Logo"
                         class="w-[180px] h-[80px] object-contain">
                 </a>

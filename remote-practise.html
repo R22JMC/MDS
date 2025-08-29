@@ -13,7 +13,7 @@
 
   <header class="bg-[#4C46C7] sticky top-0 z-50">
     <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 py-16 flex items-center justify-between h-[100px]">
-      <a href="./index.html" class="flex-shrink-0 cursor-pointer">
+      <a href="/" class="flex-shrink-0 cursor-pointer">
         <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[160px] h-[65px] object-contain"
           style="cursor: pointer;">
       </a>
@@ -102,7 +102,7 @@
     </div>
 
     <!-- Mobile Menu (Animated + Accordion) -->
-     <div id="mobile-menu"
+    <div id="mobile-menu"
       class="xxl:hidden fixed inset-y-0 right-0 w-full md:w-[400px] bg-[#4C46C7] text-white transform translate-x-full transition-transform duration-500 ease-in-out z-50 overflow-y-auto h-full"
       aria-hidden="true">
 
@@ -246,29 +246,24 @@
       <!-- Right: video / placeholder -->
       <div>
         <div class="relative rounded-2xl overflow-hidden shadow-lg">
-          <!-- If you have a real video hook it to your existing initVideoPlayer (ids below) -->
-          <video id="demoVideo" class="w-full h-full aspect-video object-cover"
-            poster="./assets/images/video-poster.jpg" preload="none">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-          </video>
-          <button id="playButton" class="absolute inset-0 flex items-center justify-center">
-            <span class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white/90">
-              <!-- play icon -->
-              <svg class="h-8 w-8" viewBox="0 0 24 24" fill="#4C46C7">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-          </button>
-          <!-- nice gradient overlay behind poster to mimic figma -->
+          <!-- YouTube iframe replacing static video -->
+          <iframe class="w-full h-full aspect-video object-cover"
+            src="https://www.youtube.com/embed/TcUmB_VfcrA?si=ZKs-VwLdibUwG1T4" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+
+          <!-- optional gradient overlay to mimic Figma style -->
           <div aria-hidden="true"
             class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#8B5CF6]/10 via-[#4C46C7]/10 to-[#111827]/10">
           </div>
         </div>
       </div>
+
     </div>
     <!-- CTA buttons -->
     <div class="mt-16 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center ">
-      <a href="#" class="inline-flex justify-center items-center gap-[6px] w-[206px] h-[55px] rounded-[30px] px-[40px] py-[22px] 
+      <a href="./contact-us.html" class="inline-flex justify-center items-center gap-[6px] w-[206px] h-[55px] rounded-[30px] px-[40px] py-[22px] 
               font-medium text-[16px] leading-[27px] text-[#FFFEFE] bg-[#4C46C7] opacity-100 hover:opacity-90">
         Speak to an expert
       </a>
@@ -474,36 +469,49 @@
 
   <!-- Download Section -->
   <section class="relative w-full h-[380px] overflow-hidden">
-    <img src="assets/images/mobileImg.jpg" alt="Medserv App Phone"
+    <!-- Background phone image -->
+    <img src="./assets/images/mobileImg.jpg" alt="Medserv App Phone"
       class="absolute inset-0 w-full mx-auto my-auto h-[280px] object-cover object-center" />
+
+    <!-- Left background strip -->
     <div class="absolute top-1/2 -translate-y-1/2  left-0 h-[280px] w-[40px] md:w-[42px] bg-[#4C46C7]"></div>
-    <div class="absolute top-1/2 left-8 md:left-10 -translate-y-1/2 
+    <!-- adjust w-[40px] / md:w-[42px] to match left-8 / md:left-10 spacing -->
+
+    <!-- Floating Card -->
+    <div class="mx-[8%] lg:mx-[14%] mx-auto px-6 md:px-0 relative h-[380px]">
+      <div class="absolute top-1/2 md:left-10 -translate-y-1/2 
         bg-[#F7FAFF] rounded-2xl 
         shadow-[0_6px_16px_rgba(0,0,0,0.06),0_6px_16px_rgba(0,0,0,0.05)]
         p-6 md:p-8 w-[320px] md:w-[500px] flex flex-col gap-6 z-10">
-      <div class="flex items-center justify-between">
-        <div>
-          <h3 class="font-bold text-[48px] leading-[72px] text-[#4C46C7]">
-            Download
-          </h3>
-          <p class="font-bold text-[48px] leading-[72px] text-[#4C46C7]">
-            The Medserv App
-          </p>
+
+        <!-- Title + Icon -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-catamaran font-bold text-[48px] leading-[72px] text-[#4C46C7]">
+              Download
+            </h3>
+            <p class="font-catamaran font-bold text-[48px] leading-[72px] text-[#4C46C7]">
+              The Medserv App
+            </p>
+          </div>
+
+          <div class="flex items-center justify-center">
+            <img src="./assets/images/icon.png" alt="Icon" class="w-[140px] h-[140px] object-contain">
+          </div>
         </div>
 
-        <div class="flex items-center justify-center">
-          <img src="assets/images/icon.png" alt="Icon" class="w-[140px] h-[140px] object-contain">
+        <!-- Store Buttons -->
+        <div class="flex gap-4 md:gap-6">
+          <a href="#" aria-label="Download from Google Play">
+            <img src="./assets/images/googlePlay.png" alt="Google Play" class="h-12 md:h-14 cursor-pointer">
+          </a>
+          <a href="#" aria-label="Download from App Store">
+            <img src="./assets/images/appStore.png" alt="App Store" class="h-12 md:h-14 cursor-pointer">
+          </a>
         </div>
       </div>
-      <div class="flex gap-4 md:gap-6">
-        <a href="#" aria-label="Download from Google Play">
-          <img src="assets/images/googlePlay.png" alt="Google Play" class="h-12 md:h-14 cursor-pointer">
-        </a>
-        <a href="#" aria-label="Download from App Store">
-          <img src="assets/images/appStore.png" alt="App Store" class="h-12 md:h-14 cursor-pointer">
-        </a>
-      </div>
     </div>
+
   </section>
   <!-- Learn More Section -->
   <section class="flex flex-col md:flex-row items-center justify-center gap-6 px-4 text-center md:text-left py-20">
@@ -519,7 +527,7 @@
   <footer class="bg-[#4C46C7] text-white">
     <div class="mx-[8%] lg:mx-[6%] mx-auto px-6 pt-10">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-16">
-        <a href="./index.html" class="flex justify-start md:justify-start">
+        <a href="/" class="flex justify-start md:justify-start">
           <img src="./assets/images/medserv-logo.png" alt="Medserv Logo" class="w-[180px] h-[80px] object-contain">
         </a>
         <div class="space-y-5">
